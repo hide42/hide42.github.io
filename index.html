@@ -137,6 +137,7 @@ function type(d) {
 }
 </script>
 </script>
+<h1>По ср.забитым и пропущ + место в лиге</h1>
 <table id="myTable">
   <tr>
    <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->  
@@ -212,11 +213,11 @@ function sortTable(n) {
 }
 </script>
      
-<h1>По ср.забитым и пропущ + место в лиге</h1>
+
         <script src="d3.min.js?v=3.2.8"></script>
 
         <script type="text/javascript"charset="utf-8">
-            d3.text("data1.csv", function(data) {
+            d3.text("data.csv", function(data) {
                 var parsedCSV = d3.csv.parseRows(data);
 
                 var container = d3.select("table")
@@ -248,6 +249,94 @@ list[j].querySelectorAll("td")[10].style.backgroundColor="red"
 }
             });
 
- 
+</script>
+<h1>По линейн</h1>
+<table id="myTable2" class="myTable2">
+  <tr>
+   <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->  
+    <th onclick="sortTable1(0)">date</th>
+    <th onclick="sortTable1(1)">home_T</th>
+<th onclick="sortTable1(2)">away_t</th>
+<th onclick="sortTable1(3)">a_win</th>
+<th onclick="sortTable1(4)">draw</th>
+<th onclick="sortTable1(5)">b_win</th>
+<th onclick="sortTable1(6)">mode_A</th>
+<th onclick="sortTable1(7)">mode_B</th>
+<th onclick="sortTable1(8)">mode_prob</th>
+<th onclick="sortTable1(9)">2.5+ prob</th>
+<th onclick="sortTable1(10)">2.5- prob</th>
+<th onclick="sortTable1(11)">CS_A</th>
+<th onclick="sortTable1(12)">CS_B</th>
+  </tr>
+</table>
+<script>
+function sortTable1(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable2");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+<script type="text/javascript"charset="utf-8">
+            d3.text("data1.csv", function(data) {
+                var parsedCSV = d3.csv.parseRows(data);
 
+                var container = d3.select(".myTable2")
+                    .selectAll("tr")
+                        .data(parsedCSV).enter()
+                        .append("tr")
+
+                    .selectAll("td")
+                        .data(function(d) { return d; }).enter()
+                        .append("td")
+                        .text(function(d) { return d; });
+});
 </script>
