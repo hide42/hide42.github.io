@@ -228,5 +228,26 @@ function sortTable(n) {
                         .data(function(d) { return d; }).enter()
                         .append("td")
                         .text(function(d) { return d; });
+	var list = document.querySelectorAll("tr")
+listGren=[0.829,0.802,0.772,0.755,0.673,0.612,0.602,0.573,0.307]
+listRed=[0.728,0.683,0.664,0.592,0.578,0.514,0.512,0.509,0.494]
+for(j=1;j<list.length;j++){
+if(listGren.includes(parseFloat(list[j].querySelectorAll("td")[9].textContent)))
+list[j].querySelectorAll("td")[9].style.backgroundColor="lawngreen"
+if(listRed.includes(parseFloat(list[j].querySelectorAll("td")[9].textContent)))
+list[j].querySelectorAll("td")[9].style.backgroundColor="red"
+}
+
+listGren=[0.954,0.936,0.880,0.827,0.790,0.788,0.773,0.762,0.690,0.604,0.508]
+listRed=[0.848,0.828,0.722,0.701,0.695,0.693]
+for(j=1;j<list.length;j++){
+if(listGren.includes(parseFloat(list[j].querySelectorAll("td")[10].textContent)))
+list[j].querySelectorAll("td")[10].style.backgroundColor="lawngreen"
+if(listRed.includes(parseFloat(list[j].querySelectorAll("td")[10].textContent)))
+list[j].querySelectorAll("td")[10].style.backgroundColor="red"
+}
             });
+
+ 
+
 </script>
