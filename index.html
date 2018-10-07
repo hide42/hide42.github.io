@@ -138,6 +138,9 @@ function type(d) {
 </script>
 </script>
 <h1>UPD mode_A это лернинг на МНК , mode_B - лернинг на randomForest</h1>
+<h2>Идеальный матч должен быть с 0.6>RTF>0.4 и 0.6>KNN>0.4 причем крайние значения не приветствуются.(0.4 - 1-1, 0.6 - 2-1)</h2>
+<h2>Если RTF>0.5 а KNN<0.5 или наоборот, то тут подвох.Как и всё что вокруг 0.5. Если не хватает игр то оценивать по 2.5- prob и 2.5+ prob, а по KNN и RTF смотреть, чтоб находились в одной половине от 0.5.</h2>
+<h3>Complited</h3>
 <table id="myTable">
   <tr>
    <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->  
