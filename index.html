@@ -137,7 +137,7 @@ function type(d) {
 }
 </script>
 </script>
-<h1>По ср.забитым и пропущ + место в лиге</h1>
+<h1>UPD mode_A это лернинг на МНК , mode_B - лернинг на randomForest</h1>
 <table id="myTable">
   <tr>
    <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->  
@@ -322,45 +322,6 @@ function sortTable1(n) {
                         .append("td")
                         .text(function(d) { return d; });
 
-var list = document.querySelectorAll("tr") 
-var list = document.querySelectorAll("tr") 
-listGren=[0.433,0.831,0.965,0.743,0.735, 0.726,0.701,0.561,0.636] 
-listRed=[0.644,0.725,0.698,0.667,0.713] 
-for(j=1;j<list.length;j++){ 
-if(j==57) continue; 
-if(listGren.includes(parseFloat(list[j].querySelectorAll("td")[10].textContent))) 
-list[j].querySelectorAll("td")[10].style.backgroundColor="lawngreen" 
-if(listRed.includes(parseFloat(list[j].querySelectorAll("td")[10].textContent))) 
-list[j].querySelectorAll("td")[10].style.backgroundColor="red" 
-} 
-
-listGren=[0.331,0.066,0.067,0.608, 0.6859999999999999,0.8,0.727,0.6759999999999999,0.59,0.588,0.563,0.544,0.625] 
-listRed=[0.9,0.865,0.825] 
-for(j=1;j<list.length;j++){ 
-if(j==57) continue; 
-if(listGren.includes(parseFloat(list[j].querySelectorAll("td")[9].textContent))) 
-list[j].querySelectorAll("td")[9].style.backgroundColor="lawngreen" 
-if(listRed.includes(parseFloat(list[j].querySelectorAll("td")[9].textContent))) 
-list[j].querySelectorAll("td")[9].style.backgroundColor="red" 
-}
-listGren=[0.807,0.672,0.361,0.425,0.027000000000000003] 
-listRed=[0.589,0.249,0.477,0.396] 
-for(j=1;j<list.length;j++){ 
-if(j==57) continue; 
-if(listGren.includes(parseFloat(list[j].querySelectorAll("td")[11].textContent))) 
-list[j].querySelectorAll("td")[11].style.backgroundColor="lawngreen" 
-if(listRed.includes(parseFloat(list[j].querySelectorAll("td")[11].textContent))) 
-list[j].querySelectorAll("td")[11].style.backgroundColor="red" 
-}
-listGren=[1.0,0.6509999999999999,0.5660000000000001,0.331,0.289] 
-listRed=[] 
-for(j=1;j<list.length;j++){ 
-if(j==57) continue; 
-if(listGren.includes(parseFloat(list[j].querySelectorAll("td")[12].textContent))) 
-list[j].querySelectorAll("td")[12].style.backgroundColor="lawngreen" 
-if(listRed.includes(parseFloat(list[j].querySelectorAll("td")[12].textContent))) 
-list[j].querySelectorAll("td")[12].style.backgroundColor="red" 
-}
  
 });
 </script>
