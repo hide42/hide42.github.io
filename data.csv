@@ -1,161 +1,102 @@
-Sat 20 Oct,Chelsea,Manchester Utd,0.849,0.097,0.053,3,0,0.102,0.773,0.227,0.460,0.037
-Sat 20 Oct,Wolverhampton,Watford,0.496,0.311,0.192,1,0,0.197,0.266,0.734,0.543,0.309
-Sat 20 Oct,Manchester City,Burnley,0.937,0.051,0.011,3,0,0.163,0.731,0.269,0.754,0.030
-Sat 20 Oct,Newcastle Utd,Brighton & Hove,0.300,0.307,0.392,0,1,0.148,0.322,0.678,0.338,0.403
-Sat 20 Oct,Cardiff City,Fulham,0.249,0.260,0.491,0,1,0.124,0.455,0.545,0.222,0.371
-Sat 20 Oct,West Ham Utd,Tottenham,0.232,0.268,0.499,0,1,0.141,0.411,0.589,0.237,0.412
-Sat 20 Oct,Bournemouth,Southampton,0.699,0.168,0.133,2,1,0.094,0.687,0.313,0.360,0.080
-Sat 20 Oct,Huddersfield,Liverpool,0.008,0.060,0.932,0,3,0.193,0.624,0.376,0.046,0.864
-Sun 21 Oct,Everton,Crystal Palace,0.545,0.285,0.170,1,0,0.190,0.311,0.689,0.542,0.262
-Sat 20 Oct,Real Madrid,Levante,0.579,0.195,0.227,2,1,0.091,0.723,0.277,0.242,0.097
-Sat 20 Oct,Valencia,Leganes,0.512,0.329,0.159,1,0,0.227,0.212,0.788,0.620,0.331
-Sat 20 Oct,Villarreal,Atletico Madrid,0.156,0.429,0.415,0,0,0.336,0.097,0.903,0.475,0.708
-Sat 20 Oct,FC Barcelona,FC Sevilla,0.265,0.193,0.542,1,2,0.082,0.776,0.224,0.089,0.186
-Sun 21 Oct,Rayo Vallecano,Getafe,0.153,0.271,0.575,0,1,0.190,0.328,0.672,0.240,0.554
-Sun 21 Oct,Eibar,Athletic Bilbao,0.490,0.222,0.288,1,1,0.097,0.648,0.352,0.240,0.148
-Sun 21 Oct,Huesca,Espanyol,0.057,0.140,0.802,0,2,0.158,0.561,0.439,0.088,0.608
-Sun 21 Oct,Real Betis,Valladolid,0.199,0.541,0.261,0,0,0.473,0.040,0.960,0.659,0.717
-Sat 20 Oct,AS Roma,SPAL,0.548,0.230,0.223,1,1,0.108,0.552,0.448,0.342,0.163
-Sat 20 Oct,Juventus,Genoa,0.947,0.025,0.010,5,0,0.090,0.932,0.068,0.504,0.006
-Sat 20 Oct,Udinese,Napoli,0.218,0.211,0.570,1,2,0.098,0.630,0.370,0.129,0.302
-Sun 21 Oct,Frosinone,Empoli,0.155,0.381,0.465,0,0,0.275,0.141,0.859,0.407,0.676
-Sun 21 Oct,Parma,Lazio,0.464,0.306,0.230,1,0,0.174,0.299,0.701,0.480,0.308
-Sun 21 Oct,Chievo,Atalanta,0.225,0.265,0.509,0,1,0.141,0.416,0.584,0.231,0.415
-Sun 21 Oct,Bologna,Torino,0.191,0.410,0.400,0,0,0.301,0.121,0.879,0.464,0.647
-Sun 21 Oct,Fiorentina,Cagliari,0.741,0.193,0.066,1,0,0.197,0.391,0.609,0.687,0.153
-Sun 21 Oct,Inter Milan,AC Milan,0.664,0.185,0.150,2,0,0.098,0.639,0.361,0.369,0.101
-Sat 20 Oct,Deportivo Merlo,Leandro N. Alem,0.083,0.271,0.646,0,1,0.252,0.245,0.755,0.249,0.727
-Sat 20 Oct,Arg. Quilmes,Dep. Laferre,0.348,0.237,0.416,1,1,0.107,0.604,0.396,0.194,0.227
+Sun 21 Oct,Rayo Vallecano,Getafe,0.157,0.280,0.563,0,1,0.195,0.310,0.690,0.254,0.560
+Sun 21 Oct,Eibar,Athletic Bilbao,0.463,0.228,0.309,1,1,0.101,0.632,0.368,0.235,0.163
+Sun 21 Oct,Huesca,Espanyol,0.061,0.145,0.794,0,2,0.157,0.557,0.443,0.091,0.600
+Sun 21 Oct,Real Betis,Valladolid,0.190,0.543,0.267,0,0,0.476,0.039,0.961,0.654,0.727
+Mon 22 Oct,Real Sociedad,Girona,0.409,0.229,0.362,1,1,0.099,0.646,0.354,0.201,0.179
+Sun 21 Oct,Frosinone,Empoli,0.143,0.360,0.498,0,0,0.253,0.160,0.840,0.373,0.679
+Sun 21 Oct,Parma,Lazio,0.480,0.285,0.235,1,0,0.155,0.360,0.640,0.438,0.269
+Sun 21 Oct,Chievo,Atalanta,0.205,0.247,0.548,0,1,0.131,0.462,0.538,0.196,0.410
+Sun 21 Oct,Bologna,Torino,0.183,0.390,0.427,0,0,0.276,0.140,0.860,0.431,0.641
+Sun 21 Oct,Fiorentina,Cagliari,0.718,0.209,0.074,1,0,0.204,0.368,0.632,0.679,0.169
+Sun 21 Oct,Inter Milan,AC Milan,0.656,0.191,0.153,2,0,0.102,0.616,0.384,0.379,0.109
+Mon 22 Oct,Sampdoria,Sassuolo,0.711,0.182,0.107,2,0,0.134,0.545,0.455,0.497,0.115
 Sun 21 Oct,El Porvenir,Excursionistas,0.307,0.264,0.428,1,1,0.126,0.468,0.532,0.246,0.318
 Sun 21 Oct,Sport. Barracas,Sport. Italiano,0.166,0.241,0.593,0,1,0.149,0.433,0.567,0.189,0.473
-Sat 20 Oct,Paris SG,Amiens,0.941,0.031,0.013,5,0,0.083,0.928,0.072,0.467,0.006
-Sat 20 Oct,Reims,Angers,0.208,0.438,0.354,0,0,0.335,0.098,0.902,0.518,0.647
-Sat 20 Oct,Nantes,Toulouse,0.339,0.276,0.385,1,1,0.130,0.432,0.568,0.286,0.315
-Sat 20 Oct,Caen,Guingamp,0.604,0.263,0.133,1,0,0.199,0.324,0.676,0.588,0.230
-Sat 20 Oct,Dijon,Lille,0.155,0.230,0.615,0,1,0.144,0.456,0.544,0.173,0.475
-Sat 20 Oct,Strasbourg,Monaco,0.659,0.201,0.139,2,0,0.121,0.541,0.459,0.445,0.131
-Sun 21 Oct,Montpellier,Bordeaux,0.561,0.245,0.195,1,0,0.134,0.459,0.541,0.423,0.192
-Sun 21 Oct,Saint-Etienne,Rennes,0.482,0.264,0.254,1,0,0.127,0.441,0.559,0.375,0.233
-Sun 21 Oct,Nice,Marseille,0.253,0.209,0.538,1,2,0.093,0.682,0.318,0.121,0.246
-Sat 20 Oct,Atlanta,Fenix,0.700,0.225,0.075,1,0,0.221,0.327,0.673,0.699,0.191
-Sat 20 Oct,Comunicaciones,Def. Unidos,0.311,0.331,0.358,0,0,0.169,0.263,0.737,0.394,0.429
-Sat 20 Oct,UAI Urquiza,San Miguel,0.636,0.275,0.089,1,0,0.249,0.244,0.756,0.716,0.254
-Sat 20 Oct,Flandria,Estud. Caseros,0.205,0.329,0.466,0,1,0.200,0.238,0.762,0.341,0.546
-Sat 20 Oct,Acassuso,Barracas Cent.,0.380,0.343,0.276,0,0,0.190,0.232,0.768,0.478,0.398
-Sat 20 Oct,Dep. Espanol,All Boys,0.105,0.280,0.615,0,1,0.237,0.254,0.746,0.258,0.679
-Sun 21 Oct,Colegiales,J.J. Urquiza,0.439,0.313,0.247,1,0,0.171,0.290,0.710,0.468,0.327
-Sat 20 Oct,Excelsior,Vitesse Arnhem,0.186,0.237,0.577,0,1,0.131,0.474,0.526,0.180,0.424
-Sat 20 Oct,PSV Eindhoven,FC Emmen,0.934,0.004,0.001,6,0,0.123,0.961,0.039,0.730,0.002
-Sat 20 Oct,Heerenveen,Ajax Amsterdam,0.037,0.072,0.889,0,3,0.092,0.839,0.161,0.022,0.452
-Sat 20 Oct,FC Utrecht,AZ Alkmaar,0.310,0.252,0.438,1,1,0.119,0.520,0.480,0.219,0.290
-Sun 21 Oct,NAC Breda,Willem II,0.217,0.186,0.596,1,2,0.087,0.753,0.247,0.084,0.231
-Sun 21 Oct,Feyenoord,PEC Zwolle,0.601,0.238,0.161,1,0,0.150,0.435,0.565,0.479,0.186
-Sun 21 Oct,Heracles Almelo,FC Groningen,0.847,0.108,0.045,2,0,0.136,0.662,0.338,0.583,0.057
-Sun 21 Oct,VVV,ADO Den Haag,0.512,0.284,0.203,1,0,0.170,0.339,0.661,0.484,0.264
-Sun 21 Oct,Fortuna Sittard,De Graafschap,0.863,0.092,0.044,3,0,0.114,0.750,0.250,0.513,0.039
-Sat 20 Oct,Hertha Wels,Stadl-Paura,0.281,0.204,0.515,1,2,0.087,0.731,0.269,0.111,0.202
-Sat 20 Oct,Weiz,Kalsdorf,0.650,0.168,0.181,2,1,0.083,0.787,0.213,0.239,0.064
-Sat 20 Oct,Gurten,Deutschlandsb.,0.329,0.255,0.416,1,1,0.121,0.514,0.486,0.232,0.281
-Sat 20 Oct,Allerheiligen,Sturm Graz B,0.444,0.251,0.305,1,1,0.118,0.525,0.475,0.291,0.214
-Sat 20 Oct,Avai,Oeste,0.523,0.276,0.201,1,0,0.165,0.359,0.641,0.475,0.249
-Sat 20 Oct,Boa EC,Guarani,0.232,0.286,0.482,0,1,0.157,0.354,0.646,0.271,0.444
-Sat 20 Oct,Vila Nova,Juventude,0.514,0.329,0.157,1,0,0.229,0.211,0.789,0.625,0.331
-Sat 20 Oct,Fortaleza,Paysandu,0.657,0.207,0.136,1,0,0.129,0.511,0.489,0.469,0.141
-Sun 21 Oct,Sampaio Correa,Londrina,0.313,0.313,0.374,0,1,0.147,0.309,0.691,0.356,0.400
-Sat 20 Oct,CS Constantine,Olymp. Médéa,0.594,0.267,0.139,1,0,0.198,0.321,0.679,0.581,0.235
-Sat 20 Oct,MO Béjaïa,AS Aïn M'lila,0.521,0.273,0.206,1,0,0.159,0.373,0.627,0.461,0.244
-Sat 20 Oct,CA Bordj Bou A.,MC Alger,0.442,0.322,0.236,1,0,0.182,0.265,0.735,0.496,0.339
-Sat 20 Oct,Blackburn,Leeds Utd,0.170,0.243,0.588,0,1,0.148,0.433,0.567,0.191,0.468
-Sat 20 Oct,Aston Villa,Swansea City,0.285,0.292,0.423,0,1,0.141,0.364,0.636,0.298,0.391
-Sat 20 Oct,Stoke City,Birmingham City,0.365,0.283,0.351,1,1,0.133,0.405,0.595,0.321,0.312
-Sat 20 Oct,Wigan Athletic,West Bromwich,0.214,0.189,0.597,1,2,0.090,0.734,0.266,0.090,0.245
-Sat 20 Oct,Nottm Forest,Norwich City,0.514,0.261,0.226,1,0,0.136,0.432,0.568,0.406,0.222
-Sat 20 Oct,Brentford,Bristol City,0.495,0.246,0.259,1,1,0.117,0.516,0.484,0.330,0.196
-Sat 20 Oct,Ipswich Town,QP Rangers,0.467,0.286,0.248,1,0,0.150,0.365,0.635,0.423,0.274
-Sat 20 Oct,Reading,Millwall,0.425,0.254,0.320,1,1,0.121,0.514,0.486,0.286,0.227
-Sat 20 Oct,Hull City,Preston,0.324,0.244,0.432,1,1,0.114,0.562,0.438,0.204,0.260
-Sat 20 Oct,Rotherham,Bolton,0.293,0.351,0.356,0,0,0.200,0.219,0.781,0.423,0.473
-Sat 20 Oct,Derby County,Sheffield Utd,0.310,0.253,0.436,1,1,0.120,0.516,0.484,0.221,0.292
-Sat 20 Oct,Banbury Utd,Royston Town,0.198,0.219,0.583,1,1,0.103,0.566,0.434,0.146,0.358
-Sat 20 Oct,Rushall Olympic,St Ives Town,0.248,0.394,0.358,0,0,0.266,0.148,0.852,0.472,0.565
-Sat 20 Oct,Lowestoft,Barwell,0.137,0.272,0.591,0,1,0.203,0.307,0.693,0.243,0.591
-Sat 20 Oct,Kings Lynn,Rushden & D.,0.321,0.234,0.445,1,1,0.105,0.609,0.391,0.179,0.239
-Sat 20 Oct,Halesowen,Needham M.,0.267,0.231,0.502,1,1,0.106,0.589,0.411,0.165,0.285
-Sat 20 Oct,Biggleswade,Coalville Town,0.295,0.286,0.419,0,1,0.133,0.385,0.615,0.290,0.372
-Sat 20 Oct,Stratford Town,Leiston,0.183,0.183,0.634,1,2,0.092,0.719,0.281,0.086,0.281
-Sat 20 Oct,Bedworth Utd,Alvechurch,0.052,0.130,0.818,0,2,0.155,0.587,0.413,0.078,0.609
-Sat 20 Oct,Chesham Utd,Tiverton Town,0.013,0.064,0.922,0,3,0.174,0.663,0.337,0.042,0.779
-Sat 20 Oct,Staines Town,Basingstoke,0.168,0.148,0.683,1,3,0.071,0.861,0.139,0.041,0.195
-Sat 20 Oct,Weymouth,Walton Cas.,0.763,0.131,0.105,3,1,0.081,0.800,0.200,0.316,0.044
-Sat 20 Oct,Merthyr,Beaconsfield,0.385,0.231,0.384,1,1,0.101,0.636,0.364,0.195,0.194
-Sat 20 Oct,Hendon,Wimborne,0.747,0.139,0.113,2,1,0.082,0.780,0.220,0.321,0.050
-Sat 20 Oct,Hartley Wintney,Kings Langley,0.765,0.123,0.111,3,1,0.075,0.861,0.139,0.253,0.031
-Sat 20 Oct,Harrow B.,Dorchester,0.668,0.169,0.163,2,1,0.088,0.750,0.250,0.281,0.071
-Sat 20 Oct,Farnborough,Salisbury FC,0.248,0.195,0.557,1,2,0.087,0.747,0.253,0.095,0.213
-Sat 20 Oct,Frome Town,Gosport B.,0.375,0.220,0.406,1,1,0.089,0.695,0.305,0.160,0.173
-Sat 20 Oct,Hornchurch,Tonbridge,0.173,0.238,0.589,0,1,0.141,0.453,0.547,0.183,0.452
-Sat 20 Oct,Lewes,Folkestone Inv.,0.635,0.176,0.189,2,1,0.087,0.762,0.238,0.248,0.074
-Sat 20 Oct,Kingstonian,Harlow Town,0.523,0.222,0.255,1,1,0.100,0.621,0.379,0.277,0.147
-Sat 20 Oct,Enfield Town,Whitehawk,0.732,0.142,0.126,3,1,0.080,0.806,0.194,0.282,0.047
-Sat 20 Oct,Dorking W.,Wingate & F.,0.450,0.307,0.243,1,0,0.169,0.304,0.696,0.464,0.313
-Sat 20 Oct,Carshalton,Potters Bar,0.283,0.341,0.375,0,0,0.187,0.237,0.763,0.398,0.469
-Sat 20 Oct,Bognor Regis,Margate,0.469,0.239,0.292,1,1,0.111,0.568,0.432,0.278,0.186
-Sat 20 Oct,Bishops,Corinthian-C.,0.564,0.202,0.234,2,1,0.093,0.697,0.303,0.251,0.109
-Sat 20 Oct,Nuneaton,Bradford PA,0.199,0.236,0.565,0,1,0.121,0.497,0.503,0.176,0.396
-Sat 20 Oct,Darlington,Boston Utd,0.215,0.264,0.521,0,1,0.144,0.413,0.587,0.227,0.427
-Sat 20 Oct,Curzon,Telford Utd,0.248,0.347,0.405,0,0,0.200,0.219,0.781,0.390,0.514
-Sat 20 Oct,Brackley Town,Spennymoor,0.324,0.227,0.450,1,1,0.099,0.646,0.354,0.163,0.220
-Sat 20 Oct,Kidderminster,FC United,0.876,0.082,0.041,3,0,0.103,0.800,0.200,0.478,0.029
-Sat 20 Oct,LKS Lodz,GKS Jastrzebie,0.415,0.318,0.267,1,0,0.167,0.285,0.715,0.454,0.344
-Sat 20 Oct,Stomil Olsztyn,Puszcza Niep.,0.298,0.293,0.409,0,1,0.138,0.365,0.635,0.305,0.380
-Sat 20 Oct,Drutex Bytovia,Odra Opole,0.484,0.208,0.308,2,1,0.084,0.732,0.268,0.187,0.119
-Sat 20 Oct,GKS Tychy,Rakow Czest.,0.134,0.251,0.615,0,1,0.186,0.357,0.643,0.211,0.565
-Sat 20 Oct,Podbeskidzie,Chojniczanka,0.400,0.226,0.375,1,1,0.096,0.664,0.336,0.186,0.175
-Sun 21 Oct,Warta Poznan,Chrobry Glogow,0.189,0.356,0.455,0,0,0.229,0.185,0.815,0.381,0.600
-Sat 20 Oct,Orenburg,Yenisey,0.844,0.117,0.039,2,0,0.169,0.575,0.425,0.671,0.075
-Sat 20 Oct,Ural,Krylya Sovetov,0.632,0.246,0.122,1,0,0.191,0.354,0.646,0.588,0.205
-Sat 20 Oct,Ufa,Rubin Kazan,0.240,0.317,0.443,0,1,0.177,0.278,0.722,0.331,0.484
-Sun 21 Oct,Dinamo Moscow,Zenit,0.219,0.274,0.507,0,1,0.153,0.382,0.618,0.247,0.442
-Sun 21 Oct,Spartak Moscow,Arsenal Tula,0.607,0.270,0.123,1,0,0.214,0.295,0.705,0.623,0.242
-Sun 21 Oct,FC Krasnodar,Akhmat Grozny,0.849,0.109,0.042,2,0,0.145,0.641,0.359,0.610,0.060
-Sat 20 Oct,Sigma Olomouc,Zlin,0.171,0.257,0.571,0,1,0.164,0.387,0.613,0.216,0.494
-Sat 20 Oct,Banik Ostrava,Karvina,0.820,0.129,0.052,2,0,0.155,0.588,0.412,0.611,0.077
-Sat 20 Oct,Pribram,Jablonec,0.260,0.225,0.515,1,1,0.102,0.614,0.386,0.152,0.277
-Sat 20 Oct,Slovacko,Teplice,0.392,0.244,0.364,1,1,0.113,0.569,0.431,0.234,0.220
-Sun 21 Oct,Dukla Prague,Opava,0.337,0.275,0.388,1,1,0.130,0.435,0.565,0.283,0.315
-Sun 21 Oct,Slovan Liberec,Slavia Prague,0.155,0.254,0.590,0,1,0.172,0.376,0.624,0.213,0.523
-Sat 20 Oct,Shimizu S-Pulse,San. Hiroshima,0.296,0.259,0.445,1,1,0.123,0.485,0.515,0.231,0.318
-Sat 20 Oct,Vegalta Sendai,Sagan Tosu,0.427,0.303,0.270,1,0,0.155,0.324,0.676,0.427,0.316
-Sat 20 Oct,Gamba Osaka,Yokohama F.,0.346,0.233,0.421,1,1,0.104,0.622,0.378,0.184,0.220
-Sat 20 Oct,Urawa Reds,Kashima,0.434,0.277,0.290,1,1,0.130,0.416,0.584,0.359,0.267
-Sat 20 Oct,Shonan Bellmare,C. Sapporo,0.408,0.261,0.331,1,1,0.124,0.491,0.509,0.291,0.246
-Sat 20 Oct,FC Tokyo,Cerezo Osaka,0.423,0.310,0.267,1,0,0.161,0.305,0.695,0.441,0.328
-Sat 20 Oct,K. Frontale,Vissel Kobe,0.648,0.229,0.123,1,0,0.171,0.407,0.593,0.554,0.179
-Sun 21 Oct,V-Varen,Jubilo Iwata,0.416,0.253,0.330,1,1,0.120,0.522,0.478,0.276,0.228
-Sat 20 Oct,CD Jaguares,Ind. Medellin,0.133,0.250,0.617,0,1,0.186,0.358,0.642,0.210,0.567
-Sat 20 Oct,Bucaramanga,Boyacá Chicó,0.542,0.240,0.219,1,0,0.115,0.506,0.494,0.371,0.181
-Sun 21 Oct,Santa Fe,La Equidad,0.420,0.332,0.248,1,0,0.182,0.248,0.752,0.494,0.362
-Sun 21 Oct,Patriotas,Once Caldas,0.174,0.261,0.565,0,1,0.166,0.378,0.622,0.223,0.497
-Sun 21 Oct,Deportes Tolima,Itagüí Leones,0.766,0.162,0.072,2,0,0.157,0.526,0.474,0.587,0.106
-Sun 21 Oct,America de Cali,Aguilas Doradas,0.286,0.320,0.395,0,1,0.160,0.286,0.714,0.356,0.436
-Sun 21 Oct,Atl. Nacional,Atlético Junior,0.307,0.231,0.462,1,1,0.104,0.615,0.385,0.170,0.245
-Sat 20 Oct,Guangzhou Ev.,Beijing Renhe,0.777,0.144,0.079,2,0,0.125,0.636,0.364,0.495,0.076
-Sat 20 Oct,Guizhou Hengf.,Dalian Yifang,0.391,0.235,0.374,1,1,0.105,0.615,0.385,0.208,0.201
-Sat 20 Oct,Shandong L.,Tianjin Teda,0.643,0.198,0.159,2,0,0.103,0.598,0.402,0.383,0.118
-Sat 20 Oct,S. Shenhua,Tianjin Quanjia,0.525,0.235,0.240,1,1,0.111,0.545,0.455,0.330,0.173
-Sat 20 Oct,Chongqing L.,Hebei CFC,0.406,0.264,0.329,1,1,0.126,0.475,0.525,0.300,0.254
-Sun 21 Oct,Beijing Guoan,Changchun Y.,0.723,0.138,0.138,3,1,0.075,0.851,0.149,0.230,0.038
-Sun 21 Oct,Henan Jianye,Guangzhou R&F,0.285,0.249,0.466,1,1,0.118,0.521,0.479,0.206,0.307
-Sun 21 Oct,Jiangsu S.,Shanghai SIPG,0.244,0.257,0.500,0,1,0.123,0.461,0.539,0.216,0.373
-Sat 20 Oct,O'Higgins,Colo Colo,0.362,0.250,0.388,1,1,0.118,0.541,0.459,0.234,0.248
-Sat 20 Oct,Curicó Unido,Palestino,0.481,0.244,0.275,1,1,0.115,0.538,0.462,0.306,0.193
-Sat 20 Oct,Union La Calera,Huachipato,0.373,0.275,0.353,1,1,0.130,0.437,0.563,0.303,0.291
-Sun 21 Oct,U. Catolica,U. Concepcion,0.428,0.300,0.272,1,0,0.152,0.335,0.665,0.419,0.310
-Sun 21 Oct,Iquique,San Luis,0.583,0.254,0.163,1,0,0.165,0.388,0.612,0.504,0.211
-Sun 21 Oct,Antofagasta,Audax Italiano,0.542,0.240,0.218,1,0,0.116,0.501,0.499,0.375,0.183
-Sat 20 Oct,FK Iskra,Zeta,0.259,0.433,0.308,0,0,0.322,0.107,0.893,0.546,0.589
-Sat 20 Oct,Lovcen,FK Mornar,0.426,0.280,0.294,1,1,0.131,0.405,0.595,0.361,0.276
-Sat 20 Oct,Petrovac,Sutjeska,0.224,0.244,0.532,0,1,0.118,0.494,0.506,0.190,0.373
-Sat 20 Oct,Rudar,Grbalj,0.161,0.425,0.413,0,0,0.331,0.101,0.899,0.473,0.699
-Sat 20 Oct,Buducnost,Mladost,0.261,0.482,0.257,0,0,0.391,0.070,0.930,0.627,0.624
-
+Mon 22 Oct,Dock Sud,San Martín B.,0.570,0.343,0.087,1,0,0.285,0.149,0.851,0.776,0.342
+Sun 21 Oct,Montpellier,Bordeaux,0.565,0.242,0.193,1,0,0.132,0.467,0.533,0.420,0.187
+Sun 21 Oct,Saint-Etienne,Rennes,0.497,0.261,0.242,1,0,0.129,0.444,0.556,0.384,0.224
+Sun 21 Oct,Nice,Marseille,0.276,0.215,0.509,1,2,0.092,0.674,0.326,0.132,0.234
+Sun 21 Oct,Colegiales,J.J. Urquiza,0.441,0.313,0.245,1,0,0.172,0.289,0.711,0.471,0.326
+Sun 21 Oct,NAC Breda,Willem II,0.225,0.189,0.586,1,2,0.088,0.748,0.252,0.088,0.228
+Sun 21 Oct,Feyenoord,PEC Zwolle,0.613,0.232,0.155,1,0,0.146,0.450,0.550,0.478,0.176
+Sun 21 Oct,Heracles Almelo,FC Groningen,0.851,0.105,0.044,2,0,0.135,0.669,0.331,0.583,0.055
+Sun 21 Oct,VVV,ADO Den Haag,0.535,0.275,0.190,1,0,0.170,0.353,0.647,0.492,0.247
+Sun 21 Oct,Fortuna Sittard,De Graafschap,0.884,0.079,0.036,3,0,0.113,0.779,0.221,0.522,0.031
+Sun 21 Oct,Newells,Tigre,0.387,0.298,0.315,1,0,0.136,0.353,0.647,0.373,0.324
+Sun 21 Oct,Estudiantes,Atl. Tucuman,0.156,0.223,0.621,0,1,0.135,0.483,0.517,0.162,0.457
+Sun 21 Oct,Argentinos Jrs,Union Santa Fe,0.099,0.571,0.330,0,0,0.529,0.027,0.973,0.624,0.847
+Sun 21 Oct,Independiente,Huracan,0.196,0.298,0.506,0,1,0.186,0.297,0.703,0.287,0.519
+Mon 22 Oct,San Martin T.,Racing Club,0.040,0.141,0.818,0,2,0.192,0.480,0.520,0.104,0.720
+Mon 22 Oct,Belgrano,Banfield,0.228,0.499,0.272,0,0,0.416,0.059,0.941,0.625,0.665
+Sun 21 Oct,Paderborn B,Sport. Siegen,0.536,0.204,0.261,2,1,0.089,0.718,0.282,0.221,0.110
+Sun 21 Oct,ASC Dortmund,Rot Weiss Ahlen,0.812,0.117,0.071,3,0,0.096,0.749,0.251,0.429,0.046
+Sun 21 Oct,Ennepetal,Sprockhövel,0.497,0.224,0.278,1,1,0.100,0.630,0.370,0.256,0.152
+Sun 21 Oct,TuS Haltern,Erndtebrück,0.740,0.174,0.086,2,0,0.150,0.520,0.480,0.557,0.114
+Sun 21 Oct,Schalke 04 B,SV Schermbeck 1,0.918,0.058,0.022,3,0,0.120,0.803,0.197,0.582,0.023
+Sun 21 Oct,FCE Rheine,Holzwickeder Sp,0.346,0.262,0.392,1,1,0.125,0.487,0.513,0.257,0.283
+Sun 21 Oct,1. FC Gievenbec,Westfalia Rhyn.,0.400,0.246,0.354,1,1,0.115,0.560,0.440,0.244,0.220
+Sun 21 Oct,Westfalia Herne,Gütersloh,0.768,0.161,0.072,2,0,0.157,0.527,0.473,0.588,0.105
+Sun 21 Oct,Meuselwitz,Auerbach,0.493,0.236,0.271,1,1,0.110,0.571,0.429,0.292,0.175
+Sun 21 Oct,Union Fuerst.,Babelsberg,0.270,0.227,0.503,1,1,0.103,0.609,0.391,0.158,0.272
+Sun 21 Oct,Altglienicke,Lok. Leipzig,0.411,0.245,0.344,1,1,0.114,0.563,0.437,0.248,0.213
+Sun 21 Oct,Nordhausen,Berliner AK,0.433,0.353,0.213,0,0,0.217,0.198,0.802,0.564,0.385
+Sun 21 Oct,Havelse,SSV Jeddeloh,0.563,0.205,0.232,2,1,0.094,0.680,0.320,0.263,0.115
+Sun 21 Oct,Norderstedt,St. Pauli B,0.473,0.252,0.275,1,1,0.120,0.501,0.499,0.325,0.211
+Sun 21 Oct,Lüneburger,VfB Oldenburg,0.403,0.329,0.267,1,0,0.173,0.259,0.741,0.469,0.366
+Sun 21 Oct,Drochtersen/A.,Weiche Flens.,0.366,0.240,0.394,1,1,0.110,0.591,0.409,0.210,0.223
+Sun 21 Oct,Holstein Kiel B,FC Germania,0.784,0.140,0.076,2,0,0.125,0.641,0.359,0.501,0.073
+Sun 21 Oct,VfL Oldenburg,BSV Rehden,0.222,0.349,0.429,0,0,0.209,0.208,0.792,0.382,0.548
+Sun 21 Oct,Dinamo Moscow,Zenit,0.212,0.260,0.528,0,1,0.141,0.424,0.576,0.219,0.425
+Sun 21 Oct,Spartak Moscow,Arsenal Tula,0.592,0.275,0.133,1,0,0.209,0.297,0.703,0.604,0.247
+Sun 21 Oct,FC Krasnodar,Akhmat Grozny,0.844,0.109,0.047,2,0,0.135,0.663,0.337,0.576,0.057
+Sun 21 Oct,Fluminense,Atletico MG,0.424,0.255,0.321,1,1,0.121,0.514,0.486,0.286,0.228
+Sun 21 Oct,Palmeiras,Ceara,0.758,0.187,0.054,1,0,0.208,0.378,0.622,0.727,0.152
+Sun 21 Oct,Vitoria,Corinthians,0.355,0.300,0.344,1,1,0.135,0.349,0.651,0.355,0.347
+Sun 21 Oct,Cruzeiro,Chapecoense,0.557,0.286,0.158,1,0,0.200,0.296,0.704,0.568,0.264
+Sun 21 Oct,Parana,Flamengo,0.103,0.288,0.609,0,1,0.244,0.238,0.762,0.269,0.692
+Sun 21 Oct,Nacional Potosi,Real Potosi,0.902,0.066,0.030,3,0,0.102,0.828,0.172,0.499,0.022
+Sun 21 Oct,Aurora,Bolivar,0.223,0.226,0.551,1,1,0.106,0.570,0.430,0.155,0.331
+Sun 21 Oct,San Jose,Wilstermann,0.508,0.230,0.262,1,1,0.106,0.590,0.410,0.288,0.163
+Mon 22 Oct,Sport Boys,Oriente,0.580,0.272,0.148,1,0,0.195,0.319,0.681,0.568,0.243
+Sun 21 Oct,Santa Fe,La Equidad,0.419,0.332,0.249,1,0,0.182,0.248,0.752,0.493,0.363
+Sun 21 Oct,Patriotas,Once Caldas,0.173,0.260,0.567,0,1,0.166,0.379,0.621,0.222,0.497
+Sun 21 Oct,Deportes Tolima,Itagüí Leones,0.765,0.162,0.073,2,0,0.156,0.525,0.475,0.586,0.106
+Sun 21 Oct,America de Cali,Aguilas Doradas,0.284,0.319,0.397,0,1,0.161,0.286,0.714,0.355,0.438
+Sun 21 Oct,Atl. Nacional,Atlético Junior,0.305,0.231,0.465,1,1,0.104,0.616,0.384,0.169,0.246
+Mon 22 Oct,Petrolera,Deportivo Cali,0.235,0.256,0.509,0,1,0.127,0.456,0.544,0.214,0.384
+Mon 22 Oct,Envigado FC,Millonarios,0.298,0.258,0.444,1,1,0.123,0.491,0.509,0.228,0.313
+Sun 21 Oct,Lillestrøm,Rosenborg,0.203,0.273,0.525,0,1,0.160,0.372,0.628,0.243,0.465
+Sun 21 Oct,Ranheim,Bodoe/Glimt,0.507,0.247,0.246,1,1,0.117,0.501,0.499,0.349,0.197
+Sun 21 Oct,Tromsø,Start,0.659,0.197,0.144,2,0,0.114,0.568,0.432,0.422,0.123
+Sun 21 Oct,Vålerenga,Kristiansund,0.494,0.231,0.275,1,1,0.106,0.595,0.405,0.277,0.166
+Sun 21 Oct,Haugesund,Odd BK,0.505,0.262,0.234,1,0,0.133,0.435,0.565,0.397,0.225
+Sun 21 Oct,Stabæk,Brann,0.265,0.270,0.465,0,1,0.128,0.428,0.572,0.246,0.372
+Sun 21 Oct,U. Catolica,U. Concepcion,0.429,0.298,0.273,1,0,0.150,0.340,0.660,0.415,0.307
+Sun 21 Oct,Iquique,San Luis,0.584,0.252,0.163,1,0,0.164,0.393,0.607,0.501,0.208
+Sun 21 Oct,Antofagasta,Audax Italiano,0.543,0.239,0.218,1,0,0.115,0.506,0.494,0.372,0.181
+Mon 22 Oct,U. de Chile,Everton CD,0.554,0.224,0.223,1,1,0.104,0.578,0.422,0.327,0.151
+Sun 21 Oct,Tromsdalen,Hamarkamer.,0.487,0.237,0.276,1,1,0.110,0.571,0.429,0.287,0.178
+Sun 21 Oct,Åsane,Sogndal,0.266,0.250,0.484,1,1,0.119,0.505,0.495,0.205,0.330
+Sun 21 Oct,Ull/Kisa,Kongsvinger,0.488,0.188,0.324,2,2,0.069,0.840,0.160,0.124,0.079
+Sun 21 Oct,Levanger,Floroe,0.468,0.245,0.286,1,1,0.116,0.538,0.462,0.297,0.198
+Sun 21 Oct,Notodden,Stroemmen,0.437,0.245,0.318,1,1,0.115,0.554,0.446,0.268,0.206
+Sun 21 Oct,Sandnes Ulf,Nest Sotra,0.438,0.255,0.308,1,1,0.121,0.509,0.491,0.297,0.224
+Sun 21 Oct,Mjoendalen,Jerv,0.617,0.272,0.111,1,0,0.226,0.277,0.723,0.654,0.246
+Sun 21 Oct,Barnechea,U. San Felipe,0.365,0.304,0.331,1,0,0.136,0.336,0.664,0.371,0.347
+Sun 21 Oct,S. Wanderers,Dep. Copiapo,0.555,0.216,0.228,1,1,0.098,0.619,0.381,0.299,0.137
+Sun 21 Oct,Cobresal,Cobreloa,0.462,0.264,0.274,1,1,0.125,0.455,0.545,0.350,0.236
+Sun 21 Oct,Deportes Valdiv,Puerto Montt,0.565,0.246,0.189,1,0,0.139,0.447,0.553,0.437,0.195
+Sun 21 Oct,S. Morning,La Serena,0.509,0.258,0.234,1,0,0.129,0.450,0.550,0.388,0.217
+Sun 21 Oct,Coquimbo Unido,San Marcos,0.743,0.163,0.094,2,0,0.129,0.593,0.407,0.491,0.094
+Sun 21 Oct,Nublense,Rangers,0.352,0.334,0.314,0,0,0.173,0.257,0.743,0.431,0.402
+Sun 21 Oct,DC United,New York City,0.490,0.234,0.276,1,1,0.108,0.583,0.417,0.281,0.172
+Sun 21 Oct,Montreal Impact,Toronto FC,0.532,0.212,0.257,2,1,0.093,0.673,0.327,0.248,0.126
+Sun 21 Oct,Orlando City,Columbus,0.346,0.265,0.388,1,1,0.126,0.474,0.526,0.265,0.289
+Sun 21 Oct,Philadelphia,New York RB,0.311,0.267,0.422,1,1,0.127,0.461,0.539,0.252,0.319
+Sun 21 Oct,Atlanta United,Chicago Fire,0.788,0.127,0.085,2,0,0.089,0.750,0.250,0.396,0.050
+Sun 21 Oct,San Jose,Colorado,0.610,0.201,0.189,2,1,0.098,0.639,0.361,0.325,0.115
+Sun 21 Oct,FC Dallas,Sporting KC,0.456,0.264,0.280,1,1,0.125,0.456,0.544,0.345,0.238
+Sun 21 Oct,Houston,Seattle,0.390,0.269,0.341,1,1,0.128,0.460,0.540,0.299,0.270
+Sun 21 Oct,Los Angeles FC,Vancouver,0.751,0.137,0.111,3,1,0.082,0.788,0.212,0.317,0.048
+Sun 21 Oct,Minnesota Utd,L.A. Galaxy,0.424,0.207,0.369,2,1,0.076,0.761,0.239,0.146,0.126
+Sun 21 Oct,Portland,Real Salt Lake,0.570,0.214,0.215,2,1,0.098,0.613,0.387,0.314,0.134
