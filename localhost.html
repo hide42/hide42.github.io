@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:8000/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.y.axisRight text {
+    fill: orange;
+}
+
+.y.axisLeft text {
+    fill: steelblue;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar1 {
+  fill: steelblue;
+}
+
+.bar2 {
+  fill: orange;
+}
+
+.x.axis path {
+  display: none;
+}
+table {
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th {
+    cursor: pointer;
+}
+
+th, td {
+    text-align: left;
+    padding: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+</style>
+</head><body>
+
+<script src="./localhost_files/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 120, right: 120, bottom: 120, left: 120},
+    width = 900 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y0 = d3.scale.linear().domain([300, 1100]).range([height, 10]),
+y1 = d3.scale.linear().domain([-40, 40]).range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+// create left yAxis
+var yAxisLeft = d3.svg.axis().scale(y0).ticks(4).orient("left");
+// create right yAxis
+var yAxisRight = d3.svg.axis().scale(y1).ticks(6).orient("right");
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("class", "graph")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.tsv("data.tsv", type, function(error, data) {
+  x.domain(data.map(function(d) { return d.year; }));
+  y0.domain([0, d3.max(data, function(d) { return d.money; })]);
+  
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+	  .attr("class", "y axis axisLeft")
+	  .attr("transform", "translate(0,0)")
+	  .call(yAxisLeft)
+	.append("text")
+	  .attr("y", 6)
+	  .attr("dy", "-2em")
+	  .style("text-anchor", "end")
+	  .style("text-anchor", "end")
+	  .text("Банк");
+	
+  svg.append("g")
+	  .attr("class", "y axis axisRight")
+	  .attr("transform", "translate(" + (width) + ",0)")
+	  .call(yAxisRight)
+	.append("text")
+	  .attr("y", 6)
+	  .attr("dy", "-2em")
+	  .attr("dx", "2em")
+	  .style("text-anchor", "end")
+	  .text("Процентов");
+
+  bars = svg.selectAll(".bar").data(data).enter();
+
+  bars.append("rect")
+      .attr("class", "bar1")
+      .attr("x", function(d) { return x(d.year); })
+      .attr("width", x.rangeBand()/2)
+      .attr("y", function(d) { return y0(d.money); })
+	  .attr("height", function(d,i,j) { return height - y0(d.money); }); 
+
+  bars.append("rect")
+      .attr("class", "bar2")
+      .attr("x", function(d) { return x(d.year) + x.rangeBand()/2; })
+      .attr("width", x.rangeBand() / 2)
+      .attr("y", function(d) { return y1(d.number); })
+	  .attr("height", function(d,i,j) { return height - y1(d.number); }); 
+
+});
+
+function type(d) {
+  d.money = +d.money;
+  return d;
+}
+</script><svg width="900" height="600"><g class="graph" transform="translate(120,120)"><g class="x axis" transform="translate(0,360)"><g class="tick" transform="translate(30.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">1</text></g><g class="tick" transform="translate(76.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">2</text></g><g class="tick" transform="translate(122.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">3</text></g><g class="tick" transform="translate(168.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">4</text></g><g class="tick" transform="translate(214.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">5</text></g><g class="tick" transform="translate(260.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">6</text></g><g class="tick" transform="translate(306.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">7</text></g><g class="tick" transform="translate(352.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">8</text></g><g class="tick" transform="translate(398.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">9</text></g><g class="tick" transform="translate(444.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">10</text></g><g class="tick" transform="translate(490.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">11</text></g><g class="tick" transform="translate(536.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">12</text></g><g class="tick" transform="translate(582.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">13</text></g><g class="tick" transform="translate(628.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">14</text></g><path class="domain" d="M0,6V0H660V6"></path></g><g class="y axis axisLeft" transform="translate(0,0)"><g class="tick" transform="translate(0,360)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0</text></g><g class="tick" transform="translate(0,272.5)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">500</text></g><g class="tick" transform="translate(0,185)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">1,000</text></g><g class="tick" transform="translate(0,97.5)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">1,500</text></g><g class="tick" transform="translate(0,10)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">2,000</text></g><path class="domain" d="M-6,10H0V360H-6"></path><text y="6" dy="-2em" style="text-anchor: end;">Банк</text></g><g class="y axis axisRight" transform="translate(660,0)"><g class="tick" transform="translate(0,360)" style="opacity: 1;"><line x2="6" y2="0"></line><text dy=".32em" x="9" y="0" style="text-anchor: start;">-40</text></g><g class="tick" transform="translate(0,270)" style="opacity: 1;"><line x2="6" y2="0"></line><text dy=".32em" x="9" y="0" style="text-anchor: start;">-20</text></g><g class="tick" transform="translate(0,180)" style="opacity: 1;"><line x2="6" y2="0"></line><text dy=".32em" x="9" y="0" style="text-anchor: start;">0</text></g><g class="tick" transform="translate(0,90)" style="opacity: 1;"><line x2="6" y2="0"></line><text dy=".32em" x="9" y="0" style="text-anchor: start;">20</text></g><g class="tick" transform="translate(0,0)" style="opacity: 1;"><line x2="6" y2="0"></line><text dy=".32em" x="9" y="0" style="text-anchor: start;">40</text></g><path class="domain" d="M6,0H0V360H6"></path><text y="6" dy="-2em" dx="2em" style="text-anchor: end;">Процентов</text></g><rect class="bar1" x="10" width="20.5" y="150" height="210"></rect><rect class="bar1" x="56" width="20.5" y="210.375" height="149.625"></rect><rect class="bar1" x="102" width="20.5" y="211.24999999999997" height="148.75000000000003"></rect><rect class="bar1" x="148" width="20.5" y="179.75" height="180.25"></rect><rect class="bar1" x="194" width="20.5" y="180.8" height="179.2"></rect><rect class="bar1" x="240" width="20.5" y="148.25000000000003" height="211.74999999999997"></rect><rect class="bar1" x="286" width="20.5" y="177.99999999999997" height="182.00000000000003"></rect><rect class="bar1" x="332" width="20.5" y="143.875" height="216.125"></rect><rect class="bar1" x="378" width="20.5" y="118.50000000000003" height="241.49999999999997"></rect><rect class="bar1" x="424" width="20.5" y="136" height="224"></rect><rect class="bar1" x="470" width="20.5" y="107.475" height="252.525"></rect><rect class="bar1" x="516" width="20.5" y="79.47500000000001" height="280.525"></rect><rect class="bar1" x="562" width="20.5" y="44.3" height="315.7"></rect><rect class="bar1" x="608" width="20.5" y="10" height="350"></rect><rect class="bar2" x="30.5" width="20.5" y="180" height="180"></rect><rect class="bar2" x="76.5" width="20.5" y="333" height="27"></rect><rect class="bar2" x="122.5" width="20.5" y="193.5" height="166.5"></rect><rect class="bar2" x="168.5" width="20.5" y="108.00000000000001" height="252"></rect><rect class="bar2" x="214.5" width="20.5" y="184.49999999999997" height="175.50000000000003"></rect><rect class="bar2" x="260.5" width="20.5" y="85.50000000000001" height="274.5"></rect><rect class="bar2" x="306.5" width="20.5" y="256.5" height="103.5"></rect><rect class="bar2" x="352.5" width="20.5" y="90" height="270"></rect><rect class="bar2" x="398.5" width="20.5" y="112.5" height="247.5"></rect><rect class="bar2" x="444.5" width="20.5" y="225" height="135"></rect><rect class="bar2" x="490.5" width="20.5" y="90" height="270"></rect><rect class="bar2" x="536.5" width="20.5" y="90" height="270"></rect><rect class="bar2" x="582.5" width="20.5" y="90" height="270"></rect><rect class="bar2" x="628.5" width="20.5" y="90" height="270"></rect></g></svg>
+
+<h1>мачин лернинг отменился(99</h1>
+<h2>Распределение пуассона: </h2>
+
+<h3>Complited</h3>
+<table id="myTable">
+  <tbody><tr>
+   <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->  
+    <th onclick="sortTable(0)">date</th>
+    <th onclick="sortTable(1)">home_T</th>
+<th onclick="sortTable(2)">away_t</th>
+  </tr>
+</tbody><tr><td>Pisa</td><td>48.0</td><td>-0.5000000000000001</td></tr><tr><td>Cavalier</td><td>51.0</td><td>-0.5555555555555556</td></tr><tr><td>Excursionistas</td><td>77.0</td><td>0.6166666666666668</td></tr><tr><td>San Martin T.</td><td>38.0</td><td>-1.6025641025641026</td></tr><tr><td>CD Sonsonate</td><td>72.0</td><td>-1.5555555555555556</td></tr><tr><td>Albissola</td><td>31.0</td><td>-1.6</td></tr><tr><td>Dunbeholden</td><td>32.0</td><td>-1.3333333333333333</td></tr><tr><td>Humble Lions</td><td>41.0</td><td>0.4444444444444444</td></tr><tr><td>Novara</td><td>33.0</td><td>-0.35</td></tr><tr><td>Arezzo</td><td>51.0</td><td>1.05</td></tr><tr><td>Independiente</td><td>67.0</td><td>1.0000000000000002</td></tr><tr><td>Santa Tecla</td><td>114.0</td><td>1.9166666666666667</td></tr><tr><td>Firpo</td><td>63.0</td><td>-3.0555555555555554</td></tr><tr><td>Assiouty Sport</td><td>70.0</td><td>1.1296296296296298</td></tr><tr><td>Henan Jianye</td><td>129.0</td><td>0.18749999999999978</td></tr><tr><td>Lech Poznan B</td><td>106.0</td><td>1.759259259259259</td></tr><tr><td>Mamelodi</td><td>45.0</td><td>0.3125</td></tr><tr><td>Sport Boys</td><td>58.0</td><td>-2.0625</td></tr><tr><td>Limon</td><td>94.0</td><td>-0.7222222222222221</td></tr><tr><td>Universitario</td><td>83.0</td><td>1.8125</td></tr><tr><td>Tivoli Gardens</td><td>51.0</td><td>-5.551115123125783E-17</td></tr><tr><td>Chalatenango</td><td>93.0</td><td>-0.33333333333333337</td></tr><tr><td>Alianza Lima</td><td>61.0</td><td>-0.625</td></tr><tr><td>Guangzhou R&amp;F</td><td>164.0</td><td>-0.3333333333333333</td></tr><tr><td>Black Leopards</td><td>38.0</td><td>-1.3541666666666665</td></tr><tr><td>Guadalupe</td><td>96.0</td><td>-1.9999999999999998</td></tr><tr><td>Tianjin Quanjia</td><td>134.0</td><td>-0.625</td></tr><tr><td>FC Kamza</td><td>35.0</td><td>0.0</td></tr><tr><td>Teuta Durres</td><td>57.0</td><td>0.0</td></tr><tr><td>Beijing Guoan</td><td>189.0</td><td>3.0833333333333335</td></tr><tr><td>S. Shenhua</td><td>151.0</td><td>-2.5833333333333335</td></tr><tr><td>Reno FC</td><td>0.0</td><td>-0.7777777777777778</td></tr><tr><td>F. State Stars</td><td>48.0</td><td>-2.75</td></tr><tr><td>Tianjin Teda</td><td>133.0</td><td>-0.22916666666666663</td></tr><tr><td>Beijing Renhe</td><td>136.0</td><td>-1.2708333333333333</td></tr><tr><td>Siena</td><td>24.0</td><td>0.33333333333333337</td></tr><tr><td>Fortaleza</td><td>198.0</td><td>4.616666666666666</td></tr><tr><td>Sanarate FC</td><td>78.0</td><td>-2.2499999999999996</td></tr><tr><td>Pasaquina</td><td>82.0</td><td>-0.8888888888888887</td></tr><tr><td>Kingstonian</td><td>90.0</td><td>1.4545454545454548</td></tr><tr><td>Carmelita</td><td>102.0</td><td>-1.5555555555555554</td></tr><tr><td>Acassuso</td><td>66.0</td><td>1.8333333333333333</td></tr><tr><td>Ternana</td><td>44.0</td><td>1.1833333333333336</td></tr><tr><td>Ituzaingó</td><td>46.0</td><td>-0.33333333333333337</td></tr><tr><td>Paysandu</td><td>137.0</td><td>0.7999999999999995</td></tr><tr><td>Hebei CFC</td><td>151.0</td><td>-1.6458333333333333</td></tr><tr><td>Ismaily</td><td>54.0</td><td>1.7407407407407405</td></tr><tr><td>Montego Bay</td><td>39.0</td><td>-0.3055555555555555</td></tr><tr><td>Shanghai SIPG</td><td>226.0</td><td>5.4375</td></tr><tr><td>Iztapa</td><td>74.0</td><td>-1.8055555555555554</td></tr><tr><td>Guastatoya</td><td>116.0</td><td>3.9722222222222214</td></tr><tr><td>Dalian Yifang</td><td>137.0</td><td>-4.6875</td></tr><tr><td>Al Ahly Cairo</td><td>42.0</td><td>0.33333333333333337</td></tr><tr><td>Siracusa</td><td>43.0</td><td>-0.5263157894736842</td></tr><tr><td>CD FAS</td><td>92.0</td><td>-0.16666666666666652</td></tr><tr><td>Arnett Gardens</td><td>42.0</td><td>-1.0</td></tr><tr><td>Changchun Y.</td><td>150.0</td><td>0.0625</td></tr><tr><td>Shandong L.</td><td>189.0</td><td>3.708333333333333</td></tr><tr><td>Ayacucho</td><td>99.0</td><td>1.8958333333333333</td></tr><tr><td>CD Aguila</td><td>106.0</td><td>0.277777777777778</td></tr><tr><td>Chongqing L.</td><td>137.0</td><td>-2.0625</td></tr><tr><td>Gorica</td><td>82.0</td><td>0.0</td></tr><tr><td>UWI Pelicans</td><td>39.0</td><td>-0.1111111111111111</td></tr><tr><td>Mount Pleasant</td><td>0.0</td><td>-1.4166666666666665</td></tr><tr><td>Jiangsu S.</td><td>148.0</td><td>-0.4375</td></tr><tr><td>Dep. Binacional</td><td>50.0</td><td>-0.6666666666666667</td></tr><tr><td>KF Laci</td><td>57.0</td><td>0.0</td></tr><tr><td>Pro Vercelli</td><td>40.0</td><td>0.55</td></tr><tr><td>Kastrioti Krujë</td><td>32.0</td><td>0.0</td></tr><tr><td>Kaizer Chiefs</td><td>55.0</td><td>-0.020833333333333315</td></tr><tr><td>Antigua GFC</td><td>87.0</td><td>1.1666666666666667</td></tr><tr><td>Wadi Degla</td><td>63.0</td><td>1.0185185185185184</td></tr><tr><td>Siquinala</td><td>99.0</td><td>0.5833333333333334</td></tr><tr><td>Guizhou Hengf.</td><td>133.0</td><td>-4.145833333333333</td></tr><tr><td>Alianza FC</td><td>120.0</td><td>1.1666666666666667</td></tr><tr><td>Waterhouse</td><td>41.0</td><td>0.6944444444444444</td></tr><tr><td>Ac. Cantolao</td><td>67.0</td><td>0.9583333333333333</td></tr><tr><td>Gornik Konin</td><td>65.0</td><td>-1.1666666666666665</td></tr><tr><td>Dep. Municipal</td><td>56.0</td><td>-1.6458333333333333</td></tr><tr><td>Domzale</td><td>81.0</td><td>0.0</td></tr><tr><td>Tonbridge</td><td>88.0</td><td>2.2272727272727275</td></tr><tr><td>CSA</td><td>173.0</td><td>0.3166666666666669</td></tr><tr><td>Zeledon</td><td>118.0</td><td>1.6666666666666665</td></tr><tr><td>Skenderbeu</td><td>77.0</td><td>0.0</td></tr><tr><td>Jocoro FC</td><td>85.0</td><td>0.8888888888888887</td></tr><tr><td>Malacateco</td><td>112.0</td><td>-0.361111111111111</td></tr><tr><td>Luftetari</td><td>44.0</td><td>0.0</td></tr><tr><td>Comunicaciones</td><td>88.0</td><td>0.1388888888888889</td></tr><tr><td>Al Masry</td><td>49.0</td><td>-0.11111111111111116</td></tr><tr><td>Flamurtari</td><td>60.0</td><td>0.0</td></tr><tr><td>Mun. Limeno</td><td>93.0</td><td>0.5000000000000001</td></tr><tr><td>Portmore Utd</td><td>57.0</td><td>1.8333333333333333</td></tr><tr><td>Comerciantes U.</td><td>59.0</td><td>-1.1458333333333333</td></tr><tr><td>Oeste</td><td>141.0</td><td>1.1999999999999997</td></tr><tr><td>Isidro Metapan</td><td>92.0</td><td>0.5</td></tr><tr><td>Catania</td><td>56.0</td><td>1.8421052631578947</td></tr><tr><td>Municipal</td><td>97.0</td><td>1.6944444444444446</td></tr><tr><td>ENPPI</td><td>58.0</td><td>-0.4444444444444444</td></tr><tr><td>Partizani</td><td>70.0</td><td>0.0</td></tr><tr><td>Guangzhou Ev.</td><td>214.0</td><td>2.125</td></tr><tr><td>Harbour View</td><td>31.0</td><td>-0.9999999999999999</td></tr><tr><td>All Boys</td><td>85.0</td><td>-0.033333333333333326</td></tr><tr><td>Fano</td><td>36.0</td><td>-0.13333333333333325</td></tr><tr><td>Deportivo Audaz</td><td>91.0</td><td>-0.5833333333333333</td></tr></table>
+<script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+     
+
+        <script src="./localhost_files/d3.min.js"></script>
+
+        <script type="text/javascript" charset="utf-8">
+            d3.text("BEZUMIE.csv", function(data) {
+                var parsedCSV = d3.csv.parseRows(data);
+
+                var container = d3.select("table")
+                    .selectAll("tr")
+                        .data(parsedCSV).enter()
+                        .append("tr")
+
+                    .selectAll("td")
+                        .data(function(d) { return d; }).enter()
+                        .append("td")
+                        .text(function(d) { return d; });
+
+            });
+
+</script>
+
+
+</body></html>
