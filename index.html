@@ -155,8 +155,10 @@ function type(d) {
 <th onclick="sortTable(8)">mode_prob</th>
 <th onclick="sortTable(9)">2.5+ prob</th>
 <th onclick="sortTable(10)">2.5- prob</th>
-<th onclick="sortTable(11)">CS_A</th>
-<th onclick="sortTable(12)">CS_B</th>
+<th onclick="sortTable(11)">A_p</th>
+<th onclick="sortTable(12)">A_s</th>
+<th onclick="sortTable(11)">B_p</th>
+<th onclick="sortTable(12)">B_s</th>
   </tr>
 </table>
 <script>
@@ -220,7 +222,7 @@ function sortTable(n) {
         <script src="d3.min.js?v=3.2.8"></script>
 
         <script type="text/javascript"charset="utf-8">
-            d3.text("data228.csv", function(data) {
+            d3.text("super.csv", function(data) {
                 var parsedCSV = d3.csv.parseRows(data);
 
                 var container = d3.select("table")
@@ -236,4 +238,5 @@ function sortTable(n) {
             });
 
 </script>
+
 
