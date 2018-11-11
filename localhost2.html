@@ -237,7 +237,15 @@ function sortTable(n) {
                         .text(function(d) { return d; });
 
             });
-
+list = document.querySelectorAll("tr")
+listGren=[0.958,0.927,0.912,0.895,0.875,0.865,0.855,0.848,0.829,0.826,0.798,0.836,0.766,0.764,0.764,0.757,0.753,0.753,0.737,0.719,0.716,0.696,0.695,0.686,0.682] 
+listRed=[0.823,0.810,0.804,0.769,0.736,0.731,0.685] 
+for(j=1;j<list.length;j++){  
+if(listGren.includes(parseFloat(list[j].querySelectorAll("td")[3].textContent))) 
+list[j].querySelectorAll("td")[3].style.backgroundColor="lawngreen" 
+if(listRed.includes(parseFloat(list[j].querySelectorAll("td")[3].textContent))) 
+list[j].querySelectorAll("td")[3].style.backgroundColor="red" 
+}
 </script>
 
 
