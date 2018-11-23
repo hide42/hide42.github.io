@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:8000/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.y.axisRight text {
+    fill: orange;
+}
+
+.y.axisLeft text {
+    fill: steelblue;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar1 {
+  fill: steelblue;
+}
+
+.bar2 {
+  fill: orange;
+}
+
+.x.axis path {
+  display: none;
+}
+table {
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th {
+    cursor: pointer;
+}
+
+th, td {
+    text-align: left;
+    padding: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+</style>
+</head><body>
+
+<script src="./1_files/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 120, right: 120, bottom: 120, left: 120},
+    width = 900 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y0 = d3.scale.linear().domain([300, 1100]).range([height, 10]),
+y1 = d3.scale.linear().domain([-40, 40]).range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+// create left yAxis
+var yAxisLeft = d3.svg.axis().scale(y0).ticks(4).orient("left");
+// create right yAxis
+var yAxisRight = d3.svg.axis().scale(y1).ticks(6).orient("right");
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("class", "graph")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.tsv("data.tsv", type, function(error, data) {
+  x.domain(data.map(function(d) { return d.year; }));
+  y0.domain([0, d3.max(data, function(d) { return d.money; })]);
+  
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+	  .attr("class", "y axis axisLeft")
+	  .attr("transform", "translate(0,0)")
+	  .call(yAxisLeft)
+	.append("text")
+	  .attr("y", 6)
+	  .attr("dy", "-2em")
+	  .style("text-anchor", "end")
+	  .style("text-anchor", "end")
+	  .text("Банк");
+	
+  svg.append("g")
+	  .attr("class", "y axis axisRight")
+	  .attr("transform", "translate(" + (width) + ",0)")
+	  .call(yAxisRight)
+	.append("text")
+	  .attr("y", 6)
+	  .attr("dy", "-2em")
+	  .attr("dx", "2em")
+	  .style("text-anchor", "end")
+	  .text("Процентов");
+
+  bars = svg.selectAll(".bar").data(data).enter();
+
+  bars.append("rect")
+      .attr("class", "bar1")
+      .attr("x", function(d) { return x(d.year); })
+      .attr("width", x.rangeBand()/2)
+      .attr("y", function(d) { return y0(d.money); })
+	  .attr("height", function(d,i,j) { return height - y0(d.money); }); 
+
+  bars.append("rect")
+      .attr("class", "bar2")
+      .attr("x", function(d) { return x(d.year) + x.rangeBand()/2; })
+      .attr("width", x.rangeBand() / 2)
+      .attr("y", function(d) { return y1(d.number); })
+	  .attr("height", function(d,i,j) { return height - y1(d.number); }); 
+
+});
+
+function type(d) {
+  d.money = +d.money;
+  return d;
+}
+</script><svg width="900" height="600"><g class="graph" transform="translate(120,120)"><g class="x axis" transform="translate(0,360)"><g class="tick" transform="translate(30.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">1</text></g><g class="tick" transform="translate(76.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">2</text></g><g class="tick" transform="translate(122.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">3</text></g><g class="tick" transform="translate(168.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">4</text></g><g class="tick" transform="translate(214.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">5</text></g><g class="tick" transform="translate(260.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">6</text></g><g class="tick" transform="translate(306.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">7</text></g><g class="tick" transform="translate(352.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">8</text></g><g class="tick" transform="translate(398.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">9</text></g><g class="tick" transform="translate(444.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">10</text></g><g class="tick" transform="translate(490.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">11</text></g><g class="tick" transform="translate(536.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">12</text></g><g class="tick" transform="translate(582.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">13</text></g><g class="tick" transform="translate(628.5,0)" style="opacity: 1;"><line y2="6" x2="0"></line><text dy=".71em" y="9" x="0" style="text-anchor: middle;">14</text></g><path class="domain" d="M0,6V0H660V6"></path></g><g class="y axis axisLeft" transform="translate(0,0)"><g class="tick" transform="translate(0,360)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">0</text></g><g class="tick" transform="translate(0,272.5)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">500</text></g><g class="tick" transform="translate(0,185)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">1,000</text></g><g class="tick" transform="translate(0,97.5)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">1,500</text></g><g class="tick" transform="translate(0,10)" style="opacity: 1;"><line x2="-6" y2="0"></line><text dy=".32em" x="-9" y="0" style="text-anchor: end;">2,000</text></g><path class="domain" d="M-6,10H0V360H-6"></path><text y="6" dy="-2em" style="text-anchor: end;">Банк</text></g><g class="y axis axisRight" transform="translate(660,0)"><g class="tick" transform="translate(0,360)" style="opacity: 1;"><line x2="6" y2="0"></line><text dy=".32em" x="9" y="0" style="text-anchor: start;">-40</text></g><g class="tick" transform="translate(0,270)" style="opacity: 1;"><line x2="6" y2="0"></line><text dy=".32em" x="9" y="0" style="text-anchor: start;">-20</text></g><g class="tick" transform="translate(0,180)" style="opacity: 1;"><line x2="6" y2="0"></line><text dy=".32em" x="9" y="0" style="text-anchor: start;">0</text></g><g class="tick" transform="translate(0,90)" style="opacity: 1;"><line x2="6" y2="0"></line><text dy=".32em" x="9" y="0" style="text-anchor: start;">20</text></g><g class="tick" transform="translate(0,0)" style="opacity: 1;"><line x2="6" y2="0"></line><text dy=".32em" x="9" y="0" style="text-anchor: start;">40</text></g><path class="domain" d="M6,0H0V360H6"></path><text y="6" dy="-2em" dx="2em" style="text-anchor: end;">Процентов</text></g><rect class="bar1" x="10" width="20.5" y="150" height="210"></rect><rect class="bar1" x="56" width="20.5" y="210.375" height="149.625"></rect><rect class="bar1" x="102" width="20.5" y="211.24999999999997" height="148.75000000000003"></rect><rect class="bar1" x="148" width="20.5" y="179.75" height="180.25"></rect><rect class="bar1" x="194" width="20.5" y="180.8" height="179.2"></rect><rect class="bar1" x="240" width="20.5" y="148.25000000000003" height="211.74999999999997"></rect><rect class="bar1" x="286" width="20.5" y="177.99999999999997" height="182.00000000000003"></rect><rect class="bar1" x="332" width="20.5" y="143.875" height="216.125"></rect><rect class="bar1" x="378" width="20.5" y="118.50000000000003" height="241.49999999999997"></rect><rect class="bar1" x="424" width="20.5" y="136" height="224"></rect><rect class="bar1" x="470" width="20.5" y="107.475" height="252.525"></rect><rect class="bar1" x="516" width="20.5" y="79.47500000000001" height="280.525"></rect><rect class="bar1" x="562" width="20.5" y="44.3" height="315.7"></rect><rect class="bar1" x="608" width="20.5" y="10" height="350"></rect><rect class="bar2" x="30.5" width="20.5" y="180" height="180"></rect><rect class="bar2" x="76.5" width="20.5" y="333" height="27"></rect><rect class="bar2" x="122.5" width="20.5" y="193.5" height="166.5"></rect><rect class="bar2" x="168.5" width="20.5" y="108.00000000000001" height="252"></rect><rect class="bar2" x="214.5" width="20.5" y="184.49999999999997" height="175.50000000000003"></rect><rect class="bar2" x="260.5" width="20.5" y="85.50000000000001" height="274.5"></rect><rect class="bar2" x="306.5" width="20.5" y="256.5" height="103.5"></rect><rect class="bar2" x="352.5" width="20.5" y="90" height="270"></rect><rect class="bar2" x="398.5" width="20.5" y="112.5" height="247.5"></rect><rect class="bar2" x="444.5" width="20.5" y="225" height="135"></rect><rect class="bar2" x="490.5" width="20.5" y="90" height="270"></rect><rect class="bar2" x="536.5" width="20.5" y="90" height="270"></rect><rect class="bar2" x="582.5" width="20.5" y="90" height="270"></rect><rect class="bar2" x="628.5" width="20.5" y="90" height="270"></rect></g></svg>
+
+<h1>мачин лернинг отменился(99</h1>
+<h2>Распределение пуассона: </h2>
+
+<h3>Complited</h3>
+<table id="myTable">
+  <tbody><tr>
+   <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->  
+    <th onclick="sortTable(0)">date</th>
+    <th onclick="sortTable(1)">home_T</th>
+<th onclick="sortTable(2)">away_t</th>
+<th onclick="sortTable(3)">a_win</th>
+<th onclick="sortTable(4)">draw</th>
+<th onclick="sortTable(5)">b_win</th>
+<th onclick="sortTable(6)">Mode_A</th>
+<th onclick="sortTable(7)">Mode_B</th>
+<th onclick="sortTable(8)">mode_prob</th>
+<th onclick="sortTable(9)">2.5+ prob</th>
+<th onclick="sortTable(10)">2.5- prob</th>
+<th onclick="sortTable(11)">A_p</th>
+<th onclick="sortTable(12)">A_s</th>
+<th onclick="sortTable(11)">B_p</th>
+<th onclick="sortTable(12)">B_s</th>
+  </tr>
+</tbody><tr><td>23 Nov</td><td>Greuther Fürth</td><td>Magdeburg</td><td>0.696</td><td>0.167</td><td>0.136</td><td>2</td><td>1</td><td>0.093</td><td>0.697</td><td>0.303</td><td>75.0</td><td>1.7222222222222223</td><td>60.0</td><td>-1.3888888888888888</td></tr><tr><td>23 Nov</td><td>Hellas Verona</td><td>Palermo</td><td>0.194</td><td>0.242</td><td>0.564</td><td>0</td><td>1</td><td>0.132</td><td>0.467</td><td>0.533</td><td>70.0</td><td>0.4912280701754385</td><td>83.0</td><td>1.0350877192982457</td></tr><tr><td>23 Nov</td><td>Entente SSG</td><td>Avranches</td><td>0.415</td><td>0.482</td><td>0.103</td><td>0</td><td>0</td><td>0.424</td><td>0.056</td><td>0.944</td><td>46.0</td><td>-1.1481481481481481</td><td>44.0</td><td>-1.7037037037037037</td></tr><tr><td>23 Nov</td><td>BFC Dynamo</td><td>RW Erfur</td><td>0.081</td><td>0.245</td><td>0.674</td><td>0</td><td>1</td><td>0.233</td><td>0.292</td><td>0.708</td><td>86.0</td><td>0.22222222222222232</td><td>100.0</td><td>1.0555555555555558</td></tr><tr><td>23 Nov</td><td>Coritiba</td><td>Fortaleza</td><td>0.340</td><td>0.359</td><td>0.301</td><td>0</td><td>0</td><td>0.211</td><td>0.205</td><td>0.795</td><td>176.0</td><td>2.9833333333333334</td><td>203.0</td><td>0.6666666666666665</td></tr><tr><td>23 Nov</td><td>Granada</td><td>Sporting Gijon</td><td>0.714</td><td>0.228</td><td>0.058</td><td>1</td><td>0</td><td>0.247</td><td>0.288</td><td>0.712</td><td>94.0</td><td>2.090909090909091</td><td>50.0</td><td>-1.4545454545454546</td></tr><tr><td>23 Nov</td><td>Béziers</td><td>Valenciennes</td><td>0.223</td><td>0.281</td><td>0.496</td><td>0</td><td>1</td><td>0.158</td><td>0.362</td><td>0.638</td><td>56.0</td><td>-0.5666666666666667</td><td>74.0</td><td>-2.0500000000000003</td></tr><tr><td>23 Nov</td><td>Roma-U19</td><td>Fiorentina-U19</td><td>0.259</td><td>0.207</td><td>0.534</td><td>1</td><td>2</td><td>0.091</td><td>0.699</td><td>0.301</td><td>88.0</td><td>1.0625</td><td>62.0</td><td>0.6875</td></tr><tr><td>23 Nov</td><td>Arg. Quilmes</td><td>Excursionistas</td><td>0.631</td><td>0.211</td><td>0.158</td><td>1</td><td>0</td><td>0.116</td><td>0.538</td><td>0.462</td><td>78.0</td><td>0.46666666666666673</td><td>78.0</td><td>-1.15</td></tr><tr><td>23 Nov</td><td>San Telmo</td><td>Barracas Cent.</td><td>0.075</td><td>0.356</td><td>0.568</td><td>0</td><td>1</td><td>0.298</td><td>0.129</td><td>0.871</td><td>68.0</td><td>-1.0166666666666666</td><td>89.0</td><td>0.8333333333333335</td></tr><tr><td>23 Nov</td><td>Olim. Ljubljana</td><td>N Mura</td><td>0.679</td><td>0.174</td><td>0.147</td><td>2</td><td>1</td><td>0.095</td><td>0.687</td><td>0.313</td><td>116.0</td><td>0.0</td><td>87.0</td><td>0.0</td></tr><tr><td>23 Nov</td><td>FV Engers</td><td>TuS Koblenz</td><td>0.254</td><td>0.215</td><td>0.530</td><td>1</td><td>2</td><td>0.095</td><td>0.654</td><td>0.346</td><td>115.0</td><td>1.907407407407407</td><td>106.0</td><td>1.9074074074074074</td></tr><tr><td>23 Nov</td><td>Zbrojovka Brno</td><td>Graffin Vlasim</td><td>0.730</td><td>0.178</td><td>0.093</td><td>2</td><td>0</td><td>0.145</td><td>0.524</td><td>0.476</td><td>95.0</td><td>1.7916666666666665</td><td>74.0</td><td>-1.625</td></tr><tr><td>24 Nov</td><td>Nordhausen</td><td>Altglienicke</td><td>0.486</td><td>0.221</td><td>0.293</td><td>1</td><td>1</td><td>0.096</td><td>0.655</td><td>0.345</td><td>83.0</td><td>1.5555555555555554</td><td>92.0</td><td>-0.7962962962962963</td></tr><tr><td>23 Nov</td><td>Astoria Walld.</td><td>Pirmasens</td><td>0.294</td><td>0.267</td><td>0.439</td><td>1</td><td>1</td><td>0.127</td><td>0.453</td><td>0.547</td><td>75.0</td><td>-1.5555555555555556</td><td>82.0</td><td>-1.6666666666666665</td></tr><tr><td>23 Nov</td><td>Drancy</td><td>Villefranche</td><td>0.169</td><td>0.384</td><td>0.447</td><td>0</td><td>0</td><td>0.273</td><td>0.142</td><td>0.858</td><td>40.0</td><td>-0.2777777777777779</td><td>49.0</td><td>-0.4629629629629629</td></tr><tr><td>23 Nov</td><td>Cholet</td><td>Dunkerque</td><td>0.589</td><td>0.219</td><td>0.192</td><td>1</td><td>1</td><td>0.103</td><td>0.561</td><td>0.439</td><td>62.0</td><td>0.2592592592592593</td><td>52.0</td><td>-2.2037037037037037</td></tr><tr><td>23 Nov</td><td>Znojmo</td><td>Hradec Kralove</td><td>0.115</td><td>0.286</td><td>0.599</td><td>0</td><td>1</td><td>0.233</td><td>0.253</td><td>0.747</td><td>75.0</td><td>-0.8541666666666667</td><td>88.0</td><td>0.625</td></tr><tr><td>23 Nov</td><td>Hertha Berlin B</td><td>Optik Rathenow</td><td>0.957</td><td>0.039</td><td>0.003</td><td>3</td><td>0</td><td>0.197</td><td>0.690</td><td>0.310</td><td>116.0</td><td>2.1111111111111107</td><td>61.0</td><td>-3.5925925925925926</td></tr><tr><td>23 Nov</td><td>Al Kharitiyath</td><td>Al-Shahaniya</td><td>0.074</td><td>0.176</td><td>0.751</td><td>0</td><td>2</td><td>0.167</td><td>0.474</td><td>0.526</td><td>53.0</td><td>-2.583333333333333</td><td>59.0</td><td>0.13888888888888884</td></tr><tr><td>23 Nov</td><td>Paris FC</td><td>Le Havre</td><td>0.449</td><td>0.494</td><td>0.058</td><td>0</td><td>0</td><td>0.458</td><td>0.045</td><td>0.955</td><td>67.0</td><td>1.4166666666666665</td><td>76.0</td><td>0.1499999999999999</td></tr><tr><td>23 Nov</td><td>Norwich U23</td><td>Southampton U23</td><td>0.074</td><td>0.166</td><td>0.760</td><td>0</td><td>2</td><td>0.159</td><td>0.512</td><td>0.488</td><td>60.0</td><td>0.33333333333333326</td><td>67.0</td><td>0.7499999999999999</td></tr><tr><td>23 Nov</td><td>Umm Salal</td><td>Al Rayyan</td><td>0.332</td><td>0.310</td><td>0.358</td><td>0</td><td>1</td><td>0.140</td><td>0.319</td><td>0.681</td><td>72.0</td><td>0.13888888888888892</td><td>71.0</td><td>0.7499999999999999</td></tr><tr><td>23 Nov</td><td>DJK Bamberg</td><td>Jahn Forchheim</td><td>0.632</td><td>0.167</td><td>0.200</td><td>2</td><td>1</td><td>0.075</td><td>0.824</td><td>0.176</td><td>118.0</td><td>0.4259259259259259</td><td>128.0</td><td>-1.0185185185185186</td></tr><tr><td>23 Nov</td><td>Austria Wien B</td><td>Vorwarts Steyr</td><td>0.526</td><td>0.210</td><td>0.265</td><td>2</td><td>1</td><td>0.092</td><td>0.691</td><td>0.309</td><td>76.0</td><td>0.0</td><td>71.0</td><td>0.0</td></tr><tr><td>23 Nov</td><td>Galatasaray</td><td>Konyaspor</td><td>0.586</td><td>0.220</td><td>0.194</td><td>1</td><td>0</td><td>0.104</td><td>0.556</td><td>0.444</td><td>87.0</td><td>1.3148148148148149</td><td>66.0</td><td>0.3333333333333333</td></tr><tr><td>23 Nov</td><td>Brinkumer SV</td><td>Vatan Sport</td><td>0.935</td><td>0.021</td><td>0.009</td><td>5</td><td>0</td><td>0.072</td><td>0.961</td><td>0.039</td><td>133.0</td><td>1.5</td><td>78.0</td><td>-2.6875</td></tr><tr><td>23 Nov</td><td>W. Innsbruck B</td><td>A. Lustenau</td><td>0.148</td><td>0.310</td><td>0.542</td><td>0</td><td>1</td><td>0.224</td><td>0.237</td><td>0.763</td><td>61.0</td><td>0.0</td><td>82.0</td><td>0.0</td></tr><tr><td>23 Nov</td><td>Chelsea U23</td><td>Tottenham U23</td><td>0.394</td><td>0.270</td><td>0.336</td><td>1</td><td>1</td><td>0.128</td><td>0.455</td><td>0.545</td><td>67.0</td><td>-1.0277777777777777</td><td>55.0</td><td>-0.8055555555555555</td></tr><tr><td>23 Nov</td><td>Guarani</td><td>General Diaz</td><td>0.643</td><td>0.217</td><td>0.140</td><td>1</td><td>0</td><td>0.140</td><td>0.479</td><td>0.521</td><td>88.0</td><td>1.972222222222222</td><td>93.0</td><td>-2.5833333333333335</td></tr><tr><td>23 Nov</td><td>Drochtersen/A.</td><td>Hannover B</td><td>0.364</td><td>0.224</td><td>0.412</td><td>1</td><td>1</td><td>0.094</td><td>0.671</td><td>0.329</td><td>119.0</td><td>1.8888888888888884</td><td>95.0</td><td>-1.2777777777777777</td></tr><tr><td>23 Nov</td><td>Piast Gliwice</td><td>Zag. Sosnowiec</td><td>0.810</td><td>0.127</td><td>0.064</td><td>2</td><td>0</td><td>0.126</td><td>0.659</td><td>0.341</td><td>92.0</td><td>2.145833333333333</td><td>73.0</td><td>-2.2708333333333335</td></tr><tr><td>23 Nov</td><td>Qatar SC</td><td>Al Ahli SC</td><td>0.121</td><td>0.184</td><td>0.695</td><td>0</td><td>2</td><td>0.122</td><td>0.574</td><td>0.426</td><td>56.0</td><td>-1.5555555555555556</td><td>86.0</td><td>-0.24999999999999992</td></tr><tr><td>23 Nov</td><td>West Brom U23</td><td>Man. Utd U23</td><td>0.141</td><td>0.211</td><td>0.648</td><td>0</td><td>1</td><td>0.131</td><td>0.504</td><td>0.496</td><td>52.0</td><td>-0.5833333333333333</td><td>67.0</td><td>0.611111111111111</td></tr><tr><td>23 Nov</td><td>NorthEast Utd</td><td>Kerala Blasters</td><td>0.173</td><td>0.265</td><td>0.561</td><td>0</td><td>1</td><td>0.170</td><td>0.366</td><td>0.634</td><td>41.0</td><td>0.2666666666666666</td><td>38.0</td><td>0.46666666666666673</td></tr><tr><td>23 Nov</td><td>Sochaux</td><td>Auxerre</td><td>0.234</td><td>0.353</td><td>0.413</td><td>0</td><td>0</td><td>0.211</td><td>0.205</td><td>0.795</td><td>53.0</td><td>-0.10000000000000009</td><td>55.0</td><td>-1.0000000000000002</td></tr><tr><td>23 Nov</td><td>Rudes</td><td>Inter Zapresic</td><td>0.111</td><td>0.174</td><td>0.716</td><td>0</td><td>2</td><td>0.121</td><td>0.595</td><td>0.405</td><td>47.0</td><td>-0.30000000000000004</td><td>68.0</td><td>0.0</td></tr><tr><td>23 Nov</td><td>Karabukspor</td><td>Balikesirspor</td><td>0.027</td><td>0.152</td><td>0.821</td><td>0</td><td>2</td><td>0.224</td><td>0.387</td><td>0.613</td><td>36.0</td><td>-1.6851851851851851</td><td>56.0</td><td>-1.6666666666666665</td></tr><tr><td>23 Nov</td><td>Técnico Univers</td><td>Delfin SC</td><td>0.273</td><td>0.191</td><td>0.535</td><td>1</td><td>2</td><td>0.079</td><td>0.791</td><td>0.209</td><td>101.0</td><td>-2.083333333333333</td><td>99.0</td><td>-0.36111111111111105</td></tr><tr><td>23 Nov</td><td>Rakow Czest.</td><td>Chojniczanka</td><td>0.696</td><td>0.225</td><td>0.079</td><td>1</td><td>0</td><td>0.216</td><td>0.334</td><td>0.666</td><td>124.0</td><td>3.962962962962963</td><td>92.0</td><td>-1.7592592592592589</td></tr><tr><td>23 Nov</td><td>Cloppenburg</td><td>VfL Oythe</td><td>0.569</td><td>0.225</td><td>0.206</td><td>1</td><td>1</td><td>0.106</td><td>0.553</td><td>0.447</td><td>86.0</td><td>-0.6041666666666667</td><td>86.0</td><td>-1.7708333333333333</td></tr><tr><td>23 Nov</td><td>J.J. Urquiza</td><td>Dep. Espanol</td><td>0.562</td><td>0.265</td><td>0.173</td><td>1</td><td>0</td><td>0.170</td><td>0.366</td><td>0.634</td><td>66.0</td><td>-0.033333333333333395</td><td>55.0</td><td>-0.6666666666666667</td></tr><tr><td>23 Nov</td><td>Leicester U23</td><td>Man. City U23</td><td>0.767</td><td>0.124</td><td>0.108</td><td>3</td><td>1</td><td>0.077</td><td>0.849</td><td>0.151</td><td>61.0</td><td>0.3333333333333333</td><td>81.0</td><td>-0.7499999999999999</td></tr><tr><td>23 Nov</td><td>Dukla Prague</td><td>Teplice</td><td>0.200</td><td>0.242</td><td>0.559</td><td>0</td><td>1</td><td>0.128</td><td>0.476</td><td>0.524</td><td>73.0</td><td>-0.5833333333333334</td><td>75.0</td><td>-0.375</td></tr><tr><td>23 Nov</td><td>Newry City</td><td>Ballymena Utd</td><td>0.200</td><td>0.218</td><td>0.581</td><td>1</td><td>1</td><td>0.102</td><td>0.575</td><td>0.425</td><td>68.0</td><td>0.0</td><td>125.0</td><td>0.0</td></tr><tr><td>23 Nov</td><td>CA Bordj Bou A.</td><td>JS Kabylie</td><td>0.072</td><td>0.389</td><td>0.539</td><td>0</td><td>0</td><td>0.330</td><td>0.101</td><td>0.899</td><td>48.0</td><td>-0.125</td><td>77.0</td><td>0.7291666666666666</td></tr><tr><td>23 Nov</td><td>Oberneuland</td><td>Borgfeld</td><td>0.938</td><td>0.017</td><td>0.007</td><td>5</td><td>0</td><td>0.079</td><td>0.961</td><td>0.039</td><td>165.0</td><td>2.8125</td><td>110.0</td><td>-1.1875</td></tr><tr><td>23 Nov</td><td>Vejle BK</td><td>Aalborg BK</td><td>0.193</td><td>0.220</td><td>0.587</td><td>0</td><td>1</td><td>0.105</td><td>0.555</td><td>0.445</td><td>74.0</td><td>0.0</td><td>77.0</td><td>0.0</td></tr><tr><td>23 Nov</td><td>Shakhtar</td><td>FC Lviv</td><td>0.593</td><td>0.309</td><td>0.098</td><td>1</td><td>0</td><td>0.261</td><td>0.200</td><td>0.800</td><td>126.0</td><td>3.2222222222222223</td><td>71.0</td><td>0.5833333333333334</td></tr><tr><td>23 Nov</td><td>Lyon</td><td>Saint-Etienne</td><td>0.724</td><td>0.181</td><td>0.095</td><td>2</td><td>0</td><td>0.145</td><td>0.517</td><td>0.483</td><td>94.0</td><td>1.6500000000000001</td><td>82.0</td><td>0.43333333333333335</td></tr><tr><td>23 Nov</td><td>Club Brugge</td><td>Zulte-Waregem</td><td>0.951</td><td>0.014</td><td>0.004</td><td>5</td><td>0</td><td>0.100</td><td>0.946</td><td>0.054</td><td>115.0</td><td>2.2083333333333335</td><td>78.0</td><td>-2.0208333333333335</td></tr><tr><td>23 Nov</td><td>Havelse</td><td>BSV Rehden</td><td>0.597</td><td>0.230</td><td>0.173</td><td>1</td><td>0</td><td>0.130</td><td>0.486</td><td>0.514</td><td>95.0</td><td>1.3888888888888884</td><td>80.0</td><td>-3.5370370370370368</td></tr><tr><td>23 Nov</td><td>Niort</td><td>Chateauroux</td><td>0.673</td><td>0.247</td><td>0.080</td><td>1</td><td>0</td><td>0.236</td><td>0.287</td><td>0.713</td><td>78.0</td><td>2.016666666666667</td><td>59.0</td><td>0.7666666666666668</td></tr><tr><td>23 Nov</td><td>Slovan Liberec</td><td>Viktoria Plzen</td><td>0.472</td><td>0.343</td><td>0.186</td><td>1</td><td>0</td><td>0.217</td><td>0.204</td><td>0.796</td><td>76.0</td><td>0.75</td><td>100.0</td><td>0.7083333333333334</td></tr><tr><td>23 Nov</td><td>Lokomotiv M.</td><td>Ural</td><td>0.842</td><td>0.104</td><td>0.054</td><td>3</td><td>0</td><td>0.109</td><td>0.740</td><td>0.260</td><td>87.0</td><td>1.4375</td><td>77.0</td><td>-0.1875</td></tr><tr><td>23 Nov</td><td>Greifswalder</td><td>Hansa Rostock B</td><td>0.607</td><td>0.212</td><td>0.181</td><td>1</td><td>0</td><td>0.101</td><td>0.573</td><td>0.427</td><td>96.0</td><td>0.8125</td><td>91.0</td><td>-0.16666666666666666</td></tr><tr><td>23 Nov</td><td>Leverkusen</td><td>Stuttgart</td><td>0.369</td><td>0.219</td><td>0.412</td><td>1</td><td>1</td><td>0.089</td><td>0.695</td><td>0.305</td><td>66.0</td><td>-0.7962962962962962</td><td>51.0</td><td>-1.8703703703703702</td></tr><tr><td>23 Nov</td><td>Coventry City</td><td>Peterborough</td><td>0.173</td><td>0.254</td><td>0.573</td><td>0</td><td>1</td><td>0.159</td><td>0.400</td><td>0.600</td><td>97.0</td><td>1.1944444444444444</td><td>124.0</td><td>2.4444444444444446</td></tr><tr><td>23 Nov</td><td>Nancy</td><td>Red Star</td><td>0.068</td><td>0.393</td><td>0.539</td><td>0</td><td>0</td><td>0.338</td><td>0.097</td><td>0.903</td><td>37.0</td><td>-2.4833333333333334</td><td>52.0</td><td>-1.2333333333333334</td></tr><tr><td>23 Nov</td><td>Bad Vilbel</td><td>Ginsheim</td><td>0.372</td><td>0.198</td><td>0.430</td><td>2</td><td>2</td><td>0.072</td><td>0.807</td><td>0.193</td><td>90.0</td><td>-1.9607843137254901</td><td>132.0</td><td>-0.5490196078431372</td></tr><tr><td>23 Nov</td><td>Hoffenheim B</td><td>Steinbach</td><td>0.419</td><td>0.310</td><td>0.271</td><td>1</td><td>0</td><td>0.160</td><td>0.306</td><td>0.694</td><td>112.0</td><td>0.05555555555555544</td><td>104.0</td><td>0.8148148148148147</td></tr><tr><td>23 Nov</td><td>Bourg-Peronnas</td><td>Tours</td><td>0.099</td><td>0.543</td><td>0.358</td><td>0</td><td>0</td><td>0.496</td><td>0.034</td><td>0.966</td><td>51.0</td><td>-1.0</td><td>45.0</td><td>0.7407407407407407</td></tr><tr><td>23 Nov</td><td>AC Ajaccio</td><td>Clermont</td><td>0.224</td><td>0.269</td><td>0.508</td><td>0</td><td>1</td><td>0.145</td><td>0.403</td><td>0.597</td><td>63.0</td><td>-0.46666666666666684</td><td>71.0</td><td>0.38333333333333336</td></tr><tr><td>23 Nov</td><td>Osdorf</td><td>Condor Hamburg</td><td>0.578</td><td>0.245</td><td>0.177</td><td>1</td><td>0</td><td>0.146</td><td>0.436</td><td>0.564</td><td>123.0</td><td>2.111111111111111</td><td>91.0</td><td>-2.166666666666667</td></tr><tr><td>23 Nov</td><td>Inter Leipzig</td><td>Sandersdorf</td><td>0.802</td><td>0.161</td><td>0.037</td><td>2</td><td>0</td><td>0.210</td><td>0.402</td><td>0.598</td><td>80.0</td><td>0.8125</td><td>62.0</td><td>-1.4375</td></tr><tr><td>23 Nov</td><td>V. Bistritsa</td><td>Slavia Sofia</td><td>0.259</td><td>0.261</td><td>0.480</td><td>1</td><td>1</td><td>0.124</td><td>0.458</td><td>0.542</td><td>60.0</td><td>-0.6428571428571428</td><td>64.0</td><td>-0.3333333333333333</td></tr><tr><td>23 Nov</td><td>Bayern Munich B</td><td>Pipinsried</td><td>0.694</td><td>0.172</td><td>0.134</td><td>2</td><td>0</td><td>0.097</td><td>0.665</td><td>0.335</td><td>116.0</td><td>3.6666666666666665</td><td>108.0</td><td>-1.6666666666666663</td></tr><tr><td>23 Nov</td><td>Reading U23</td><td>Fulham U23</td><td>0.699</td><td>0.164</td><td>0.137</td><td>2</td><td>1</td><td>0.092</td><td>0.718</td><td>0.282</td><td>93.0</td><td>1.333333333333333</td><td>62.0</td><td>-1.4722222222222223</td></tr><tr><td>23 Nov</td><td>Concordia</td><td>Rugenbergen</td><td>0.594</td><td>0.192</td><td>0.214</td><td>2</td><td>1</td><td>0.092</td><td>0.720</td><td>0.280</td><td>102.0</td><td>-0.4814814814814814</td><td>109.0</td><td>-2.0925925925925926</td></tr><tr><td>23 Nov</td><td>Süderelbe</td><td>Meiendorfer SV</td><td>0.491</td><td>0.190</td><td>0.319</td><td>2</td><td>2</td><td>0.070</td><td>0.825</td><td>0.175</td><td>126.0</td><td>0.42592592592592593</td><td>91.0</td><td>-0.574074074074074</td></tr><tr><td>23 Nov</td><td>Sacachispas</td><td>Flandria</td><td>0.492</td><td>0.423</td><td>0.085</td><td>0</td><td>0</td><td>0.363</td><td>0.083</td><td>0.917</td><td>66.0</td><td>0.7333333333333333</td><td>46.0</td><td>-0.7833333333333333</td></tr><tr><td>23 Nov</td><td>Marignane</td><td>Chambly</td><td>0.440</td><td>0.347</td><td>0.213</td><td>0</td><td>0</td><td>0.209</td><td>0.208</td><td>0.792</td><td>62.0</td><td>0.9259259259259258</td><td>74.0</td><td>0.2777777777777779</td></tr><tr><td>23 Nov</td><td>SC Victoria</td><td>Niendorfer TSV</td><td>0.468</td><td>0.210</td><td>0.322</td><td>2</td><td>1</td><td>0.084</td><td>0.728</td><td>0.272</td><td>139.0</td><td>2.3888888888888893</td><td>108.0</td><td>0.07407407407407404</td></tr><tr><td>23 Nov</td><td>Akhmat Grozny</td><td>CSKA Moscow</td><td>0.106</td><td>0.498</td><td>0.397</td><td>0</td><td>0</td><td>0.441</td><td>0.050</td><td>0.950</td><td>67.0</td><td>-0.2916666666666667</td><td>76.0</td><td>0.125</td></tr><tr><td>23 Nov</td><td>Dinamo Bucarest</td><td>Gaz Metan</td><td>0.470</td><td>0.364</td><td>0.166</td><td>0</td><td>0</td><td>0.249</td><td>0.164</td><td>0.836</td><td>72.0</td><td>0.8809523809523807</td><td>82.0</td><td>-0.7619047619047618</td></tr><tr><td>23 Nov</td><td>Elversberg</td><td>Kickers Offenb.</td><td>0.259</td><td>0.217</td><td>0.523</td><td>1</td><td>1</td><td>0.095</td><td>0.647</td><td>0.353</td><td>88.0</td><td>-0.33333333333333337</td><td>108.0</td><td>0.12962962962962968</td></tr><tr><td>23 Nov</td><td>U. Catolica</td><td>Aucas</td><td>0.374</td><td>0.326</td><td>0.300</td><td>0</td><td>0</td><td>0.163</td><td>0.273</td><td>0.727</td><td>94.0</td><td>-0.3055555555555555</td><td>89.0</td><td>-0.638888888888889</td></tr><tr><td>23 Nov</td><td>Sol de America</td><td>3 de Febrero</td><td>0.362</td><td>0.233</td><td>0.405</td><td>1</td><td>1</td><td>0.103</td><td>0.627</td><td>0.373</td><td>108.0</td><td>2.5277777777777777</td><td>103.0</td><td>-0.11111111111111123</td></tr><tr><td>23 Nov</td><td>Orleans</td><td>Brest</td><td>0.224</td><td>0.215</td><td>0.562</td><td>1</td><td>2</td><td>0.098</td><td>0.622</td><td>0.378</td><td>91.0</td><td>0.8500000000000001</td><td>106.0</td><td>1.25</td></tr><tr><td>23 Nov</td><td>Lotte</td><td>Hansa Rostock</td><td>0.303</td><td>0.401</td><td>0.296</td><td>0</td><td>0</td><td>0.273</td><td>0.142</td><td>0.858</td><td>74.0</td><td>-0.5833333333333335</td><td>96.0</td><td>-0.7833333333333335</td></tr><tr><td>23 Nov</td><td>Ipswich Town</td><td>West Bromwich</td><td>0.186</td><td>0.257</td><td>0.557</td><td>0</td><td>1</td><td>0.154</td><td>0.404</td><td>0.596</td><td>65.0</td><td>-0.5277777777777778</td><td>110.0</td><td>-0.18055555555555558</td></tr><tr><td>23 Nov</td><td>Hessen Dreieich</td><td>Eintracht Stad.</td><td>0.523</td><td>0.336</td><td>0.141</td><td>1</td><td>0</td><td>0.242</td><td>0.190</td><td>0.810</td><td>87.0</td><td>1.4999999999999996</td><td>63.0</td><td>-2.3703703703703702</td></tr><tr><td>23 Nov</td><td>Laval</td><td>Pau FC</td><td>0.767</td><td>0.163</td><td>0.070</td><td>2</td><td>0</td><td>0.162</td><td>0.508</td><td>0.492</td><td>91.0</td><td>3.018518518518518</td><td>60.0</td><td>-1.962962962962963</td></tr><tr><td>23 Nov</td><td>Def. Unidos</td><td>Dep. Riestra</td><td>0.257</td><td>0.270</td><td>0.473</td><td>0</td><td>1</td><td>0.132</td><td>0.423</td><td>0.577</td><td>82.0</td><td>1.4000000000000001</td><td>76.0</td><td>1.8833333333333333</td></tr><tr><td>23 Nov</td><td>Kapfenberger</td><td>Amstetten</td><td>0.429</td><td>0.249</td><td>0.321</td><td>1</td><td>1</td><td>0.117</td><td>0.537</td><td>0.463</td><td>90.0</td><td>0.0</td><td>73.0</td><td>0.0</td></tr><tr><td>23 Nov</td><td>Luján</td><td>Central Córdoba</td><td>0.493</td><td>0.288</td><td>0.219</td><td>1</td><td>0</td><td>0.165</td><td>0.340</td><td>0.660</td><td>60.0</td><td>0.30000000000000016</td><td>70.0</td><td>-1.1333333333333333</td></tr><tr><td>23 Nov</td><td>Troyes</td><td>Lorient</td><td>0.225</td><td>0.238</td><td>0.537</td><td>1</td><td>1</td><td>0.113</td><td>0.519</td><td>0.481</td><td>76.0</td><td>-0.30000000000000004</td><td>86.0</td><td>0.4500000000000002</td></tr><tr><td>23 Nov</td><td>Cukaricki</td><td>RAD Belgrade</td><td>0.745</td><td>0.196</td><td>0.059</td><td>1</td><td>0</td><td>0.212</td><td>0.366</td><td>0.634</td><td>112.0</td><td>2.1875000000000004</td><td>58.0</td><td>-2.125</td></tr><tr><td>23 Nov</td><td>Juventus-U19</td><td>Atalanta-U19</td><td>0.092</td><td>0.199</td><td>0.710</td><td>0</td><td>1</td><td>0.167</td><td>0.442</td><td>0.558</td><td>71.0</td><td>0.6875</td><td>78.0</td><td>0.5208333333333334</td></tr><tr><td>23 Nov</td><td>Usti nad Labem</td><td>MFK Chrudim</td><td>0.804</td><td>0.136</td><td>0.060</td><td>2</td><td>0</td><td>0.149</td><td>0.589</td><td>0.411</td><td>86.0</td><td>1.6666666666666665</td><td>69.0</td><td>-2.7083333333333335</td></tr><tr><td>23 Nov</td><td>Concarneau</td><td>Quevilly Rouen</td><td>0.339</td><td>0.256</td><td>0.405</td><td>1</td><td>1</td><td>0.122</td><td>0.511</td><td>0.489</td><td>71.0</td><td>0.5</td><td>70.0</td><td>1.111111111111111</td></tr><tr><td>23 Nov</td><td>San Martín B.</td><td>Cañuelas</td><td>0.281</td><td>0.384</td><td>0.336</td><td>0</td><td>0</td><td>0.249</td><td>0.165</td><td>0.835</td><td>49.0</td><td>-1.5500000000000003</td><td>66.0</td><td>-1.5666666666666669</td></tr><tr><td>23 Nov</td><td>Sport. Barracas</td><td>Ituzaingó</td><td>0.495</td><td>0.258</td><td>0.247</td><td>1</td><td>0</td><td>0.124</td><td>0.458</td><td>0.542</td><td>50.0</td><td>-0.050000000000000044</td><td>55.0</td><td>-1.05</td></tr><tr><td>23 Nov</td><td>Leganes</td><td>Alaves</td><td>0.353</td><td>0.269</td><td>0.378</td><td>1</td><td>1</td><td>0.128</td><td>0.461</td><td>0.539</td><td>52.0</td><td>0.7833333333333333</td><td>77.0</td><td>0.05000000000000002</td></tr><tr><td>23 Nov</td><td>Nöttingen</td><td>Neckarsulmer</td><td>0.598</td><td>0.140</td><td>0.258</td><td>4</td><td>2</td><td>0.045</td><td>0.969</td><td>0.031</td><td>111.0</td><td>1.7592592592592593</td><td>87.0</td><td>-0.8518518518518517</td></tr><tr><td>23 Nov</td><td>Stal Mielec</td><td>Warta Poznan</td><td>0.651</td><td>0.255</td><td>0.094</td><td>1</td><td>0</td><td>0.228</td><td>0.290</td><td>0.710</td><td>95.0</td><td>-0.31481481481481477</td><td>83.0</td><td>-1.4259259259259258</td></tr><tr><td>23 Nov</td><td>Bielefeld</td><td>MSV Duisburg</td><td>0.411</td><td>0.209</td><td>0.379</td><td>1</td><td>1</td><td>0.076</td><td>0.750</td><td>0.250</td><td>62.0</td><td>0.6296296296296295</td><td>58.0</td><td>-0.9629629629629628</td></tr><tr><td>23 Nov</td><td>Lyon Duchère</td><td>Le Mans</td><td>0.461</td><td>0.297</td><td>0.242</td><td>1</td><td>0</td><td>0.161</td><td>0.331</td><td>0.669</td><td>85.0</td><td>2.0</td><td>73.0</td><td>0.5740740740740742</td></tr></table>
+<script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc"; 
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;      
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+     
+
+        <script src="./1_files/d3.min.js"></script>
+
+        <script type="text/javascript" charset="utf-8">
+            d3.text("supatest01.csv", function(data) {
+                var parsedCSV = d3.csv.parseRows(data);
+
+                var container = d3.select("table")
+                    .selectAll("tr")
+                        .data(parsedCSV).enter()
+                        .append("tr")
+
+                    .selectAll("td")
+                        .data(function(d) { return d; }).enter()
+                        .append("td")
+                        .text(function(d) { return d; });
+
+            });
+
+</script>
+
+
+</body></html>
